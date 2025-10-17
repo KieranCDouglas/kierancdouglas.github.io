@@ -247,22 +247,20 @@ html[data-theme="dark"] .project-meta .summary { color: var(--text); }
 }
 
 
-/* Make the embedded CV fill the content area */
+/* Let the CV embed go a bit wider than the standard container */
+.cv-wide { max-width: min(1200px, 100%); margin: 0 auto; }
+
+/* Full, scrollable PDF embed (you already added this, keep it last in the file) */
 .pdf-viewer {
   display: block;
   width: 100%;
-  /* take up the viewport height minus some space for top padding + footer */
-  height: calc(100vh - 160px);
+  height: calc(100vh - 160px);  /* tweak this number if you want it taller/shorter */
   border: 1px solid var(--border);
   border-radius: 12px;
   background: var(--surface);
   box-shadow: var(--shadow);
 }
 
-/* On small screens, give a bit more breathing room */
 @media (max-width: 900px) {
-  .pdf-viewer {
-    height: calc(100vh - 220px);
-  }
+  .pdf-viewer { height: calc(100vh - 220px); }
 }
-

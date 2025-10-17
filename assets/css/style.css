@@ -437,13 +437,14 @@ html[data-theme="dark"] .project-meta .summary { color: var(--text); }
 .pdf-viewer {
   display: block;
   width: 100%;
-  height: calc(100vh - 100px); /* fill more vertical space */
-  min-height: 600px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
+  height: 100vh; /* fill the full viewport height */
+  min-height: 100vh;
+  border: none;
+  border-radius: 0;
   background: var(--surface);
   box-shadow: var(--shadow);
 }
+
 
 @media (max-width: 900px) {
   .pdf-viewer { height: calc(100vh - 260px); }

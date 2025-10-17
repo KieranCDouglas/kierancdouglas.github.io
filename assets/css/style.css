@@ -4,27 +4,35 @@
 :root {
   --max-width: 960px;
 
-  /* light theme */
-  --bg: #D9DCD6;
+  /* LIGHT theme */
+  --bg: #D9DCD6;        /* page background */
   --text: #222222;
   --muted: #6f6f6f;
-  --surface: #ffffff;
-  --surface-2: #f5f6f8;
+  --surface: #ffffff;   /* cards/content */
+  --surface-2: #f5f6f8; /* sidebar/track */
   --border: #e6e6e6;
-  --brand: #0088cc;
+
+  /* Accent for buttons/toggle in LIGHT */
+  --brand: #16425B;     /* active sidebar & toggle thumb */
+  --on-brand: #ffffff;  /* text/icon on brand bg */
 
   --radius: 16px;
   --shadow: 0 6px 24px rgba(0,0,0,.06);
 }
 
 html[data-theme="dark"] {
-  --bg: #0f1115;
-  --text: #e7e7e7;
-  --muted: #a0a0a0;
-  --surface: #161a23;
-  --surface-2: #1c2230;
-  --border: #2b3447;
-  --brand: #5ab0ff;
+  /* DARK theme */
+  --bg: #114B5F;        /* page background */
+  --text: #E4FDE1;      /* general text */
+  --muted: #bfe9d2;     /* softened text */
+  --surface: #0f3a49;   /* cards/content */
+  --surface-2: #0e3440; /* sidebar/track */
+  --border: #0c2d38;
+
+  /* Accent for buttons/toggle in DARK */
+  --brand: #E4FDE1;     /* active sidebar & toggle thumb */
+  --on-brand: #0f1115;  /* readable text on light brand chip */
+
   --shadow: 0 8px 28px rgba(0,0,0,.45);
 }
 
@@ -118,10 +126,28 @@ button:focus-visible {
   border-radius: 10px;
   transition: background .2s, color .2s, transform .05s, box-shadow .2s;
 }
-.navbar a:hover { background: rgba(0,0,0,.04); box-shadow: 0 2px 6px rgba(0,0,0,.06); }
-html[data-theme="dark"] .navbar a:hover { background: rgba(255,255,255,.06); box-shadow: none; }
 
-.navbar a.active { background: var(--brand); color: #fff; }
+/* subtle hover tint using brand (with rgba fallback if color-mix unsupported) */
+.navbar a:hover {
+  background: color-mix(in srgb, var(--brand) 12%, transparent);
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+}
+@supports not (background: color-mix(in srgb, red 10%, white)) {
+  .navbar a:hover { background: rgba(22,66,91,0.12); } /* approx of #16425B @ 12% */
+}
+html[data-theme="dark"] .navbar a:hover {
+  background: color-mix(in srgb, var(--brand) 10%, transparent);
+  box-shadow: none;
+}
+@supports not (background: color-mix(in srgb, red 10%, white)) {
+  html[data-theme="dark"] .navbar a:hover { background: rgba(228,253,225,0.10); }
+}
+
+/* Active state = brand chip with readable text */
+.navbar a.active {
+  background: var(--brand);
+  color: var(--on-brand);
+}
 
 /* ===================== */
 /* SLIDING THEME TOGGLE  */
@@ -163,7 +189,7 @@ html[data-theme="dark"] .navbar a:hover { background: rgba(255,255,255,.06); box
   transition: background .2s ease, border-color .2s ease;
 }
 
-/* The thumb that slides */
+/* The thumb that slides — uses brand in BOTH themes */
 .tgl-thumb {
   position: absolute;
   top: 50%;
@@ -172,6 +198,7 @@ html[data-theme="dark"] .navbar a:hover { background: rgba(255,255,255,.06); box
   height: 30px;
   border-radius: 50%;
   background: var(--brand);
+  color: var(--on-brand);
   box-shadow: 0 2px 6px rgba(0,0,0,.15);
   transform: translate(0, -50%);
   transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
@@ -187,27 +214,30 @@ html[data-theme="dark"] .navbar a:hover { background: rgba(255,255,255,.06); box
   transition: color .25s ease, opacity .25s ease;
 }
 
-.tgl-icon--sun { left: 8px; }
+/* Ensure icons sit centered and don't get baseline cropped */
+.tgl-icon { line-height: 0; }
+.tgl-icon svg { display: block; }
+
+/* inner spacing so icons don't kiss the edge */
+.tgl-icon--sun  { left: 9px; }
 .tgl-icon--moon { right: 9px; }
 
 /* Hover polish */
 .theme-toggle:hover .tgl-thumb { box-shadow: 0 4px 10px rgba(0,0,0,.18); }
 
-/* State when DARK is active: move thumb right, brighten moon, mute sun */
+/* DARK active: move thumb right, brighten moon, mute sun */
 html[data-theme="dark"] .tgl-thumb {
-  transform: translate(32px, -50%);      /* 64 - 30 - (2*2) ≈ 30; a hair more for spacing */
-  background: #2b3348;                    /* darker thumb in dark mode */
+  transform: translate(32px, -50%);   /* 64 - 30 - (2*2) ≈ 30; nudge for spacing */
+  background: var(--brand);
 }
-
-html[data-theme="dark"] .tgl-icon--moon { opacity: 1; color: #e7e7e7; }
+html[data-theme="dark"] .tgl-icon--moon { opacity: 1; color: var(--text); }
 html[data-theme="dark"] .tgl-icon--sun  { opacity: .55; color: var(--muted); }
 
-/* State when LIGHT is active: thumb left, brighten sun, mute moon */
+/* LIGHT active: thumb left, brighten sun, mute moon */
 html[data-theme="light"] .tgl-thumb {
   transform: translate(0, -50%);
   background: var(--brand);
 }
-
 html[data-theme="light"] .tgl-icon--sun  { opacity: 1; color: #222; }
 html[data-theme="light"] .tgl-icon--moon { opacity: .6; color: var(--muted); }
 
@@ -228,7 +258,6 @@ html[data-theme="light"] .tgl-icon--moon { opacity: .6; color: var(--muted); }
   }
 }
 
-
 /* ===================== */
 /* BUTTONS               */
 /* ===================== */
@@ -240,7 +269,7 @@ html[data-theme="light"] .tgl-icon--moon { opacity: .6; color: var(--muted); }
   font-weight: 600;
   border: 1px solid var(--brand);
 }
-.btn--primary { background: var(--brand); color: #fff; }
+.btn--primary { background: var(--brand); color: var(--on-brand); }
 .btn--primary:hover { filter: brightness(0.95); }
 .btn--ghost { background: transparent; color: var(--brand); }
 .btn--ghost:hover { background: rgba(0,0,0,.04); }
@@ -299,11 +328,11 @@ html[data-theme="dark"] .intro__blurb { color: var(--muted); }
   transform: translateY(-2px);
   background: var(--brand);
   border-color: var(--brand);
-  color: #fff;
+  color: var(--on-brand);
 }
 /* Optional brand colors on hover */
 .social-icons a[aria-label="LinkedIn"]:hover { background: #0A66C2; border-color: #0A66C2; }
-.social-icons a[aria-label="GitHub"]:hover { background: #24292e; border-color: #24292e; }
+.social-icons a[aria-label="GitHub"]:hover   { background: #24292e; border-color: #24292e; }
 .social-icons a[aria-label="Substack"]:hover { background: #ff6719; border-color: #ff6719; }
 html[data-theme="dark"] .social-icons a { background: var(--surface); border-color: var(--border); color: var(--text); }
 
@@ -445,10 +474,3 @@ html[data-theme="dark"] .project-meta .summary { color: var(--text); }
     margin: 0 auto;
   }
 }
-/* Ensure icons sit centered and don't get baseline cropped */
-.tgl-icon { line-height: 0; }         /* removes text baseline space */
-.tgl-icon svg { display: block; }     /* removes inline-gap/bleed */
-
-/* Optional: a hair more inner spacing so icons never kiss the pill edge */
-.tgl-icon--sun { left: 9px; }        /* was 8px; adjust to taste */
-.tgl-icon--moon { right: 9px; }      /* was 8px */

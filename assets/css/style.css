@@ -54,6 +54,48 @@ body {
   padding: 0 1rem;
 }
 
+/* Social icon buttons */
+.social-icons {
+  display: flex;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+}
+
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  transition: transform .15s ease, background .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.social-icons a:hover {
+  transform: translateY(-2px);
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
+}
+
+/* optional brand colors on hover */
+.social-icons a[aria-label="LinkedIn"]:hover { background: #0A66C2; border-color: #0A66C2; }
+.social-icons a[aria-label="GitHub"]:hover { background: #24292e; border-color: #24292e; }
+.social-icons a[aria-label="Substack"]:hover { background: #ff6719; border-color: #ff6719; }
+
+html[data-theme="dark"] .social-icons a {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+
 main.container { padding: 2rem 1rem; }
 
 .site-footer {

@@ -23,7 +23,7 @@
 html[data-theme="dark"] {
   /* DARK theme */
   --bg: #114B5F;        /* page background */
-  --text: #E4FDE1;      /* general text */
+  --text: #ffffff;      /* general text */
   --muted: #bfe9d2;     /* softened text */
   --surface: #0f3a49;   /* cards/content */
   --surface-2: #0e3440; /* sidebar/track */

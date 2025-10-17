@@ -21,42 +21,42 @@
       </div>
     </footer>
 
-    <!-- Elegant dark/light toggle (shared across ALL pages) -->
+    <!-- Sliding dark/light toggle: state-only JS, visuals via CSS -->
     <script>
     (function () {
       const KEY = 'theme';
       const root = document.documentElement;
+
+      // Initialize theme (prefer saved, else system)
       const saved = localStorage.getItem(KEY);
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      root.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+      const initial = saved || (prefersDark ? 'dark' : 'light');
+      root.setAttribute('data-theme', initial);
 
-      function setIcon(btn) {
+      function applyState(btn) {
         if (!btn) return;
         const isDark = root.getAttribute('data-theme') === 'dark';
-        btn.innerHTML = `
-          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            ${isDark
-              ? '<path d="M21 12.79A9 9 0 0 1 11.21 3 7 7 0 0 0 12 21a9 9 0 0 1 9-8.21Z" />'
-              : '<circle cx="12" cy="12" r="5" /><path d="M12 1v2m0 18v2m11-11h-2M3 12H1m17.07 7.07-1.41-1.41M6.34 6.34 4.93 4.93m12.14 0 1.41 1.41M6.34 17.66l-1.41 1.41" />'}
-          </svg>`;
-        btn.title = isDark ? 'Switch to light mode' : 'Switch to dark mode';
+        btn.setAttribute('aria-checked', String(isDark));
       }
 
       function wire() {
         const btn = document.getElementById('theme-toggle');
         if (!btn) return;
-        setIcon(btn);
+        applyState(btn);
+
         btn.addEventListener('click', () => {
           const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
           root.setAttribute('data-theme', next);
           localStorage.setItem(KEY, next);
-          setIcon(btn);
+          applyState(btn);
         });
       }
 
-      document.readyState === 'loading'
-        ? document.addEventListener('DOMContentLoaded', wire)
-        : wire();
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', wire);
+      } else {
+        wire();
+      }
     })();
     </script>
   </body>

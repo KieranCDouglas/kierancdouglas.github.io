@@ -2,7 +2,6 @@
 <html lang="en" data-theme="">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-u9Js2lC0a8qQlD8oFyKf5T0O0mSvq6GmO6xqQbPynHbkTzDPMmHZFz6Am5e1tRLKvIr37zDgcqHg3R9j+6EdkA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ page.title }} | {{ site.title }}</title>
     {%- seo -%}
@@ -22,31 +21,32 @@
       </div>
     </footer>
 
-    <!-- Theme script (needed on ALL pages) -->
+    <!-- Elegant dark/light toggle (shared across ALL pages) -->
     <script>
     (function () {
       const KEY = 'theme';
       const root = document.documentElement;
-
-      // Prefer saved value, otherwise system preference
       const saved = localStorage.getItem(KEY);
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const initial = saved || (prefersDark ? 'dark' : 'light');
-      root.setAttribute('data-theme', initial);
+      root.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
 
       function setIcon(btn) {
         if (!btn) return;
         const isDark = root.getAttribute('data-theme') === 'dark';
-        btn.textContent = isDark ? '☀️' : '🌙';
+        btn.innerHTML = `
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            ${isDark
+              ? '<path d="M21 12.79A9 9 0 0 1 11.21 3 7 7 0 0 0 12 21a9 9 0 0 1 9-8.21Z" />'
+              : '<circle cx="12" cy="12" r="5" /><path d="M12 1v2m0 18v2m11-11h-2M3 12H1m17.07 7.07-1.41-1.41M6.34 6.34 4.93 4.93m12.14 0 1.41 1.41M6.34 17.66l-1.41 1.41" />'}
+          </svg>`;
         btn.title = isDark ? 'Switch to light mode' : 'Switch to dark mode';
       }
 
-      // Might render after HTML; handle late binding:
       function wire() {
         const btn = document.getElementById('theme-toggle');
         if (!btn) return;
         setIcon(btn);
-        btn.addEventListener('click', function () {
+        btn.addEventListener('click', () => {
           const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
           root.setAttribute('data-theme', next);
           localStorage.setItem(KEY, next);
@@ -54,11 +54,9 @@
         });
       }
 
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', wire);
-      } else {
-        wire();
-      }
+      document.readyState === 'loading'
+        ? document.addEventListener('DOMContentLoaded', wire)
+        : wire();
     })();
     </script>
   </body>

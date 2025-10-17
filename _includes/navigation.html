@@ -1,10 +1,14 @@
 <nav class="navbar">
   <ul>
+    {% assign current = page.url | replace: 'index.html','' | replace: '//','/' %}
     {% for item in site.data.navigation %}
-      {% assign href = item.url | relative_url %}
+      {% assign raw = item.url | default: '/' %}
+      {% assign href = raw | relative_url %}
+      {% assign normalized = raw | replace: 'index.html','' | replace: '//','/' %}
+
       <li>
         <a href="{{ href }}"
-           class="{% if page.url == item.url or page.url == href %}active{% endif %}">
+           class="{% if current == normalized or current == href %}active{% endif %}">
           {{ item.name }}
         </a>
       </li>

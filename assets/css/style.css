@@ -264,3 +264,40 @@ html[data-theme="dark"] .project-meta .summary { color: var(--text); }
 @media (max-width: 900px) {
   .pdf-viewer { height: calc(100vh - 220px); }
 }
+
+/* --- Social/contact icons --- */
+.intro__contacts.icons {
+  display: flex;
+  gap: 16px;
+  padding: 0;
+  margin: 12px 0;
+  list-style: none;
+}
+
+.intro__contacts.icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 20px;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow);
+}
+
+.intro__contacts.icons a:hover {
+  background: var(--brand);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+html[data-theme="dark"] .intro__contacts.icons a {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+}
+

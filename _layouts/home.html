@@ -11,7 +11,6 @@
   <body class="home">
     {% include navigation.html %}
 
-    <!-- Intro card (name, about, headshot, contacts + icons) -->
     <main class="container">
       <article class="intro">
         <div class="intro__text">
@@ -30,7 +29,6 @@
             {% endif %}
           </ul>
 
-          <!-- Social icons (inline SVG; shows only if links exist) -->
           <ul class="social-icons">
             {% if page.links.github %}
               <li>
@@ -41,7 +39,6 @@
                 </a>
               </li>
             {% endif %}
-
             {% if page.links.substack %}
               <li>
                 <a href="{{ page.links.substack }}" target="_blank" rel="noopener" aria-label="Substack">
@@ -53,7 +50,6 @@
                 </a>
               </li>
             {% endif %}
-
             {% if page.links.linkedin %}
               <li>
                 <a href="{{ page.links.linkedin }}" target="_blank" rel="noopener" aria-label="LinkedIn">
@@ -74,35 +70,8 @@
         {% endif %}
       </article>
 
-      <!-- Render the page body (e.g., your About Me section in index.md) -->
+      <!-- Page body (e.g., your About Me section from index.md) -->
       {{ content }}
-
-      {% assign project_count = site.projects | size %}
-      {% if page.show_featured != false and project_count > 0 %}
-      <section>
-        <h2 class="section-title">Featured Work</h2>
-        <ul class="cards">
-          {% assign items = site.projects | sort:"year" | reverse | slice: 0, 6 %}
-          {% for p in items %}
-            <li class="card">
-              <a href="{{ p.url | relative_url }}" class="card__link">
-                {% if p.thumbnail %}
-                  <img src="{{ p.thumbnail | relative_url }}" alt="" class="card__thumb">
-                {% endif %}
-                <div class="card__body">
-                  <h3 class="card__title">{{ p.title }}</h3>
-                  <p class="card__meta">
-                    {% if p.year %}{{ p.year }}{% endif %}
-                    {% if p.tags %} • {{ p.tags | join: ', ' }}{% endif %}
-                  </p>
-                  {% if p.summary %}<p class="card__summary">{{ p.summary }}</p>{% endif %}
-                </div>
-              </a>
-            </li>
-          {% endfor %}
-        </ul>
-      </section>
-      {% endif %}
     </main>
 
     <footer class="site-footer">
@@ -111,7 +80,7 @@
       </div>
     </footer>
 
-    <!-- Theme script (same on all layouts) -->
+    <!-- Elegant dark/light toggle (shared across ALL pages) -->
     <script>
     (function () {
       const KEY = 'theme';
@@ -122,10 +91,16 @@
 
       function setIcon(btn) {
         if (!btn) return;
-        const dark = root.getAttribute('data-theme') === 'dark';
-        btn.textContent = dark ? '☀️' : '🌙';
-        btn.title = dark ? 'Switch to light mode' : 'Switch to dark mode';
+        const isDark = root.getAttribute('data-theme') === 'dark';
+        btn.innerHTML = `
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            ${isDark
+              ? '<path d="M21 12.79A9 9 0 0 1 11.21 3 7 7 0 0 0 12 21a9 9 0 0 1 9-8.21Z" />'
+              : '<circle cx="12" cy="12" r="5" /><path d="M12 1v2m0 18v2m11-11h-2M3 12H1m17.07 7.07-1.41-1.41M6.34 6.34 4.93 4.93m12.14 0 1.41 1.41M6.34 17.66l-1.41 1.41" />'}
+          </svg>`;
+        btn.title = isDark ? 'Switch to light mode' : 'Switch to dark mode';
       }
+
       function wire() {
         const btn = document.getElementById('theme-toggle');
         if (!btn) return;
@@ -137,7 +112,10 @@
           setIcon(btn);
         });
       }
-      document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', wire) : wire();
+
+      document.readyState === 'loading'
+        ? document.addEventListener('DOMContentLoaded', wire)
+        : wire();
     })();
     </script>
   </body>

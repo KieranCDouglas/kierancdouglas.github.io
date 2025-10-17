@@ -30,7 +30,7 @@ html[data-theme="dark"] {
   --border: #0c2d38;
 
   /* Accent for buttons/toggle in DARK */
-  --brand: #E4FDE1;     /* active sidebar & toggle thumb */
+  --brand: #D9DCD6;     /* active sidebar & toggle thumb */
   --on-brand: #0f1115;  /* readable text on light brand chip */
 
   --shadow: 0 8px 28px rgba(0,0,0,.45);

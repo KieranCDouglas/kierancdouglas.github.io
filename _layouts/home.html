@@ -9,64 +9,53 @@
     <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
   </head>
   <body class="home">
+    {%- comment -%} Show the small site header only if you want it {%- endcomment -%}
+    {% if page.show_header != false %}
     <header class="site-header">
       <div class="container">
-        <h1 class="site-title">
-          <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
-        </h1>
+        <h1 class="site-title"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
         <p class="site-tagline">{{ site.description }}</p>
       </div>
     </header>
+    {% endif %}
 
     {% include navigation.html %}
 
-    <!-- Hero -->
-    <section class="hero container">
-      <div class="hero__text">
-        <p class="eyebrow">{{ page.eyebrow | default: "WELCOME" }}</p>
-        <h1 class="hero__title">
-          {{ page.hero_title | default: "Hello, I'm " }}
-          <em>{{ page.hero_emphasis | default: site.author.name }}</em>
-        </h1>
-        {% if page.hero_tagline %}
-          <p class="hero__tagline">{{ page.hero_tagline }}</p>
+    <!-- Intro card (name, about, headshot, contact) -->
+    <section class="container">
+      <article class="intro">
+        <div class="intro__text">
+          <h1 class="intro__title">{{ page.heading | default: site.author.name }}</h1>
+          <p class="intro__blurb">
+            {{ page.about_blurb | default: "Economics graduate student at UC Davis — research, code, and notes." }}
+          </p>
+
+          <ul class="intro__contacts">
+            <li><strong>Email:</strong> <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></li>
+            {% if page.location %}<li><strong>Location:</strong> {{ page.location }}</li>{% endif %}
+            {% if page.links %}
+              {% if page.links.github %}<li><strong>GitHub:</strong> <a href="{{ page.links.github }}" target="_blank" rel="noopener">{{ page.links.github | replace: 'https://', '' }}</a></li>{% endif %}
+              {% if page.links.scholar %}<li><strong>Scholar:</strong> <a href="{{ page.links.scholar }}" target="_blank" rel="noopener">Google Scholar</a></li>{% endif %}
+              {% if page.links.linkedin %}<li><strong>LinkedIn:</strong> <a href="{{ page.links.linkedin }}" target="_blank" rel="noopener">{{ page.links.linkedin | replace: 'https://', '' }}</a></li>{% endif %}
+            {% endif %}
+          </ul>
+
+          <div class="intro__actions">
+            <a class="btn btn--primary" href="{{ '/my-work/' | relative_url }}">My Work</a>
+            <a class="btn btn--ghost" href="{{ '/cv/' | relative_url }}">CV</a>
+            <a class="btn btn--ghost" href="{{ '/contact/' | relative_url }}">Contact</a>
+          </div>
+        </div>
+
+        {% if page.avatar %}
+        <div class="intro__image">
+          <img src="{{ page.avatar | relative_url }}" alt="{{ site.author.name }}">
+        </div>
         {% endif %}
-        <div class="hero__actions">
-          {% if page.cta_primary_url %}
-            <a class="btn btn--primary" href="{{ page.cta_primary_url | relative_url }}">
-              {{ page.cta_primary_text | default: "About" }}
-            </a>
-          {% endif %}
-          {% if page.cta_secondary_url %}
-            <a class="btn btn--ghost" href="{{ page.cta_secondary_url | relative_url }}">
-              {{ page.cta_secondary_text | default: "Contact" }}
-            </a>
-          {% endif %}
-        </div>
-      </div>
-      {% if page.hero_image %}
-        <div class="hero__image">
-          <img src="{{ page.hero_image | relative_url }}" alt="" />
-        </div>
-      {% endif %}
+      </article>
     </section>
 
-    <!-- About Me mini section -->
-    <section class="about container">
-      {% if page.avatar %}
-        <img class="about__avatar" src="{{ page.avatar | relative_url }}" alt="{{ site.author.name }}">
-      {% endif %}
-      <div class="about__text">
-        <h2>About me</h2>
-        <p>{{ page.about_blurb | default: "Economics PhD student exploring causal inference, policy, and data." }}</p>
-        <p class="about__links">
-          <a href="{{ '/cv/' | relative_url }}" class="btn btn--ghost">CV</a>
-          <a href="{{ '/contact/' | relative_url }}" class="btn btn--ghost">Contact</a>
-        </p>
-      </div>
-    </section>
-
-    <!-- Featured projects -->
+    <!-- Featured projects (optional—remove if you don’t want it on home) -->
     <section class="container">
       <h2 class="section-title">Featured Work</h2>
       <ul class="cards">
@@ -83,9 +72,7 @@
                   {% if p.year %}{{ p.year }}{% endif %}
                   {% if p.tags %} • {{ p.tags | join: ', ' }}{% endif %}
                 </p>
-                {% if p.summary %}
-                  <p class="card__summary">{{ p.summary }}</p>
-                {% endif %}
+                {% if p.summary %}<p class="card__summary">{{ p.summary }}</p>{% endif %}
               </div>
             </a>
           </li>

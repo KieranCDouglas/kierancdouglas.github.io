@@ -247,20 +247,22 @@ html[data-theme="dark"] .project-meta .summary { color: var(--text); }
 }
 
 
-/* Full, scrollable PDF embed */
+/* Make the embedded CV fill the content area */
 .pdf-viewer {
+  display: block;
   width: 100%;
-  height: calc(100vh - 160px); /* fills the screen minus header/footer */
+  /* take up the viewport height minus some space for top padding + footer */
+  height: calc(100vh - 160px);
   border: 1px solid var(--border);
   border-radius: 12px;
   background: var(--surface);
   box-shadow: var(--shadow);
 }
 
-/* Tighten spacing above/below the viewer on the CV page */
-.page-cv main.container { padding-top: 1rem; padding-bottom: 1rem; }
-
-
-@media (max-width: 640px) {
-  .cards { grid-template-columns: 1fr; }
+/* On small screens, give a bit more breathing room */
+@media (max-width: 900px) {
+  .pdf-viewer {
+    height: calc(100vh - 220px);
+  }
 }
+

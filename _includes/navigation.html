@@ -5,16 +5,15 @@
       {% assign raw = item.url | default: '/' %}
       {% assign href = raw | relative_url %}
       {% assign normalized = raw | replace: 'index.html','' | replace: '//','/' %}
-      {% assign label = item.name %}
       <li>
         <a href="{{ href }}"
            class="{% if current == normalized or current == href %}active{% endif %}">
-          {{ label }}
+          {{ item.name }}
         </a>
       </li>
     {% endfor %}
   </ul>
 
-  <!-- Theme toggle button -->
+  <!-- Theme toggle button (single source of truth) -->
   <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
 </nav>

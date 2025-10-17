@@ -188,7 +188,7 @@ html[data-theme="dark"] .navbar a:hover { background: rgba(255,255,255,.06); box
 }
 
 .tgl-icon--sun { left: 8px; }
-.tgl-icon--moon { right: 8px; }
+.tgl-icon--moon { right: 9px; }
 
 /* Hover polish */
 .theme-toggle:hover .tgl-thumb { box-shadow: 0 4px 10px rgba(0,0,0,.18); }

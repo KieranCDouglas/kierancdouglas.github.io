@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ page.title }} | {{ site.title }}</title>
+    {%- seo -%}
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
+  </head>
+  <body class="home">
+    <header class="site-header">
+      <div class="container">
+        <h1 class="site-title">
+          <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
+        </h1>
+        <p class="site-tagline">{{ site.description }}</p>
+      </div>
+    </header>
+
+    {% include navigation.html %}
+
+    <!-- Hero -->
+    <section class="hero container">
+      <div class="hero__text">
+        <p class="eyebrow">{{ page.eyebrow | default: "WELCOME" }}</p>
+        <h1 class="hero__title">
+          {{ page.hero_title | default: "Hello, I'm " }}
+          <em>{{ page.hero_emphasis | default: site.author.name }}</em>
+        </h1>
+        {% if page.hero_tagline %}
+          <p class="hero__tagline">{{ page.hero_tagline }}</p>
+        {% endif %}
+        <div class="hero__actions">
+          {% if page.cta_primary_url %}
+            <a class="btn btn--primary" href="{{ page.cta_primary_url | relative_url }}">
+              {{ page.cta_primary_text | default: "About" }}
+            </a>
+          {% endif %}
+          {% if page.cta_secondary_url %}
+            <a class="btn btn--ghost" href="{{ page.cta_secondary_url | relative_url }}">
+              {{ page.cta_secondary_text | default: "Contact" }}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+      {% if page.hero_image %}
+        <div class="hero__image">
+          <img src="{{ page.hero_image | relative_url }}" alt="" />
+        </div>
+      {% endif %}
+    </section>
+
+    <!-- About Me mini section -->
+    <section class="about container">
+      {% if page.avatar %}
+        <img class="about__avatar" src="{{ page.avatar | relative_url }}" alt="{{ site.author.name }}">
+      {% endif %}
+      <div class="about__text">
+        <h2>About me</h2>
+        <p>{{ page.about_blurb | default: "Economics PhD student exploring causal inference, policy, and data." }}</p>
+        <p class="about__links">
+          <a href="{{ '/cv/' | relative_url }}" class="btn btn--ghost">CV</a>
+          <a href="{{ '/contact/' | relative_url }}" class="btn btn--ghost">Contact</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Featured projects -->
+    <section class="container">
+      <h2 class="section-title">Featured Work</h2>
+      <ul class="cards">
+        {% assign items = site.projects | sort:"year" | reverse | slice: 0, 6 %}
+        {% for p in items %}
+          <li class="card">
+            <a href="{{ p.url | relative_url }}" class="card__link">
+              {% if p.thumbnail %}
+                <img src="{{ p.thumbnail | relative_url }}" alt="" class="card__thumb">
+              {% endif %}
+              <div class="card__body">
+                <h3 class="card__title">{{ p.title }}</h3>
+                <p class="card__meta">
+                  {% if p.year %}{{ p.year }}{% endif %}
+                  {% if p.tags %} • {{ p.tags | join: ', ' }}{% endif %}
+                </p>
+                {% if p.summary %}
+                  <p class="card__summary">{{ p.summary }}</p>
+                {% endif %}
+              </div>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}</p>
+      </div>
+    </footer>
+  </body>
+</html>

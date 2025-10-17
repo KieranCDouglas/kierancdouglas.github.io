@@ -308,3 +308,51 @@ html[data-theme="dark"] .project-meta .summary { color: var(--text); }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
 }
+
+/* ===================== */
+/* HOME: ABOUT ME SECTION */
+/* ===================== */
+.about-me {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 32px;
+  margin-top: 40px;
+}
+
+.about-me h2 {
+  margin-top: 0;
+  font-size: 1.6rem;
+  text-align: left;
+}
+
+.about-me__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 28px;
+  align-items: start;
+  margin-top: 16px;
+}
+
+.about-me__text p {
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.about-me__image img {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  display: block;
+}
+
+@media (max-width: 800px) {
+  .about-me__grid {
+    grid-template-columns: 1fr;
+  }
+  .about-me__image img {
+    margin: 0 auto;
+  }
+}

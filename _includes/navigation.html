@@ -1,10 +1,11 @@
 <nav class="navbar">
   <ul>
     {% for item in site.data.navigation %}
+      {% assign href = item.url | relative_url %}
       <li>
-        <a href="{{ item.url | relative_url }}"
-           class="{% if page.url == item.url %}active{% endif %}">
-           {{ item.name }}
+        <a href="{{ href }}"
+           class="{% if page.url == item.url or page.url == href %}active{% endif %}">
+          {{ item.name }}
         </a>
       </li>
     {% endfor %}

@@ -21,8 +21,8 @@ svg { fill: currentColor; }
   --text: #222222;
   --muted: #222222;
   --surface: #ffffff;   /* cards/content */
-  --surface-2: # #FEFBEA; /* sidebar/track */
-  --border: # #FEFBEA;
+  --surface-2: #BAC49D; /* sidebar/track */
+  --border: #FEFBEA;
 
   /* Accent for buttons/toggle in LIGHT */
   --brand: #16425B;     /* active sidebar & toggle thumb */

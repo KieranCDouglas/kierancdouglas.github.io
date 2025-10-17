@@ -432,21 +432,21 @@ html[data-theme="dark"] .project-meta .summary { color: var(--text); }
 /* ===================== */
 /* CV / PDF VIEWER       */
 /* ===================== */
-.cv-wide { max-width: min(1200px, 100%); margin: 0 auto; }
+.cv-wide { max-width: min(1300px, 100%); margin: 0 auto; }
 
 .pdf-viewer {
   display: block;
   width: 100%;
-  height: calc(100vh - 160px);  /* adjust if needed */
-  min-height: 420px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
+  height: calc(100vh - 170px);  /* adjust if needed */
+  min-height: 440px;
+  border: .5px solid var(--border);
+  border-radius: 8px;
   background: var(--surface);
   box-shadow: var(--shadow);
 }
 
 @media (max-width: 900px) {
-  .pdf-viewer { height: calc(100vh - 220px); }
+  .pdf-viewer { height: calc(100vh - 260px); }
 }
 
 /* ===================== */

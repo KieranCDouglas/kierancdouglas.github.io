@@ -4,8 +4,8 @@ Literature"
 year: 2025
 tags: [nlp, llm, methods]
 thumbnail: /assets/images/projects/miningmeaning.jpg
-summary: "This paper exploits machine learning natural language processing techniques to aid in
-large scale meta-analysis, literature review, and data collection, specifically as it relates
+summary: "We exploit machine learning natural language processing techniques to aid in
+large scale meta-analysis, literature review, and data collection, specifically as they relate
 to exploring the validity and interchangeability of rainfall metrics used in instrumental
 variables regression."
 layout: project

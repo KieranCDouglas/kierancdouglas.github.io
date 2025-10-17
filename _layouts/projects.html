@@ -1,0 +1,27 @@
+---
+# no front matter values needed; kept for Jekyll parsing
+---
+
+{% comment %} Uses the site-wide default wrapper in _layouts/default.html {% endcomment %}
+<article class="project">
+  <header>
+    <h1>{{ page.title }}</h1>
+    {% if page.year %}<p class="muted">Year: {{ page.year }}</p>{% endif %}
+    {% if page.tags %}<p class="muted">Tags: {{ page.tags | join: ", " }}</p>{% endif %}
+    {% if page.links %}
+      <p class="project-links">
+        {% if page.links.paper %}<a href="{{ page.links.paper }}" target="_blank" rel="noopener">Paper</a>{% endif %}
+        {% if page.links.code %} · <a href="{{ page.links.code }}" target="_blank" rel="noopener">Code</a>{% endif %}
+        {% if page.links.slides %} · <a href="{{ page.links.slides }}" target="_blank" rel="noopener">Slides</a>{% endif %}
+      </p>
+    {% endif %}
+  </header>
+
+  {% if page.thumbnail %}
+    <p><img src="{{ page.thumbnail | relative_url }}" alt="{{ page.title }}" style="max-width:100%;height:auto;border-radius:12px" /></p>
+  {% endif %}
+
+  <div class="content">
+    {{ content }}
+  </div>
+</article>

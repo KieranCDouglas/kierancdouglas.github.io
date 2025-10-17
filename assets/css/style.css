@@ -30,9 +30,7 @@ html[data-theme="dark"] {
 
 /* Respect system preference if user hasn't chosen */
 @media (prefers-color-scheme: dark) {
-  html:not([data-theme="light"]):not([data-theme="dark"]) {
-    color-scheme: dark;
-  }
+  html:not([data-theme="light"]):not([data-theme="dark"]) { color-scheme: dark; }
 }
 
 /* ===================== */
@@ -54,48 +52,6 @@ body {
   padding: 0 1rem;
 }
 
-/* Social icon buttons */
-.social-icons {
-  display: flex;
-  gap: 12px;
-  list-style: none;
-  padding: 0;
-  margin: 10px 0 0;
-}
-
-.social-icons a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-  color: var(--text);
-  box-shadow: var(--shadow);
-  transition: transform .15s ease, background .2s ease, color .2s ease, border-color .2s ease;
-}
-
-.social-icons a:hover {
-  transform: translateY(-2px);
-  background: var(--brand);
-  border-color: var(--brand);
-  color: #fff;
-}
-
-/* optional brand colors on hover */
-.social-icons a[aria-label="LinkedIn"]:hover { background: #0A66C2; border-color: #0A66C2; }
-.social-icons a[aria-label="GitHub"]:hover { background: #24292e; border-color: #24292e; }
-.social-icons a[aria-label="Substack"]:hover { background: #ff6719; border-color: #ff6719; }
-
-html[data-theme="dark"] .social-icons a {
-  background: var(--surface);
-  border-color: var(--border);
-  color: var(--text);
-}
-
-
 main.container { padding: 2rem 1rem; }
 
 .site-footer {
@@ -103,6 +59,14 @@ main.container { padding: 2rem 1rem; }
   background: var(--surface-2);
   padding: 1rem 0;
   color: var(--muted);
+}
+
+/* Focus styles for accessibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--brand);
+  outline-offset: 2px;
+  border-radius: 10px;
 }
 
 /* ===================== */
@@ -123,11 +87,12 @@ main.container { padding: 2rem 1rem; }
   z-index: 1000;
 }
 
-/* optional brand (if you add it in navigation.html) */
+/* optional brand link (if you add it in navigation.html) */
 .brand-link { 
   font-weight: 800; 
   text-decoration: none; 
   color: var(--text); 
+  margin-bottom: 6px;
 }
 .brand-link:hover { opacity: .85; }
 
@@ -151,15 +116,12 @@ main.container { padding: 2rem 1rem; }
   font-weight: 600;
   padding: 10px 12px;
   border-radius: 10px;
-  transition: background .2s, color .2s, transform .05s;
+  transition: background .2s, color .2s, transform .05s, box-shadow .2s;
 }
-.navbar a:hover { background: rgba(0,0,0,.04); }
-html[data-theme="dark"] .navbar a:hover { background: rgba(255,255,255,.06); }
+.navbar a:hover { background: rgba(0,0,0,.04); box-shadow: 0 2px 6px rgba(0,0,0,.06); }
+html[data-theme="dark"] .navbar a:hover { background: rgba(255,255,255,.06); box-shadow: none; }
 
-.navbar a.active {
-  background: var(--brand);
-  color: #fff;
-}
+.navbar a.active { background: var(--brand); color: #fff; }
 
 /* dark-mode toggle button inside the sidebar */
 .theme-toggle {
@@ -223,6 +185,39 @@ html[data-theme="dark"] .intro__blurb { color: var(--muted); }
   box-shadow: var(--shadow);
 }
 
+/* --- Social icon buttons (uses <ul class="social-icons">) --- */
+.social-icons {
+  display: flex;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+}
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  transition: transform .15s ease, background .2s ease, color .2s ease, border-color .2s ease;
+}
+.social-icons a:hover {
+  transform: translateY(-2px);
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
+}
+/* Optional brand colors on hover */
+.social-icons a[aria-label="LinkedIn"]:hover { background: #0A66C2; border-color: #0A66C2; }
+.social-icons a[aria-label="GitHub"]:hover { background: #24292e; border-color: #24292e; }
+.social-icons a[aria-label="Substack"]:hover { background: #ff6719; border-color: #ff6719; }
+html[data-theme="dark"] .social-icons a { background: var(--surface); border-color: var(--border); color: var(--text); }
+
 /* ===================== */
 /* SECTIONS / CARDS      */
 /* ===================== */
@@ -245,6 +240,7 @@ html[data-theme="dark"] .intro__blurb { color: var(--muted); }
 .card__meta { margin: 0 0 8px; color: var(--muted); }
 .card__summary { margin: 0; color: #444; }
 html[data-theme="dark"] .card__summary { color: var(--text); }
+html[data-theme="dark"] .card__meta { color: #b6c0d0; }
 
 /* ===================== */
 /* PROJECT LIST (legacy) */
@@ -257,6 +253,26 @@ html[data-theme="dark"] .card__summary { color: var(--text); }
 .project-meta .muted { color: var(--muted); font-weight: 400; }
 .project-meta .summary { color: #444; margin-top: 4px; }
 html[data-theme="dark"] .project-meta .summary { color: var(--text); }
+
+/* ===================== */
+/* CV / PDF VIEWER       */
+/* ===================== */
+.cv-wide { max-width: min(1200px, 100%); margin: 0 auto; }
+
+.pdf-viewer {
+  display: block;
+  width: 100%;
+  height: calc(100vh - 160px);  /* adjust if needed */
+  min-height: 420px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 900px) {
+  .pdf-viewer { height: calc(100vh - 220px); }
+}
 
 /* ===================== */
 /* RESPONSIVE            */
@@ -288,58 +304,7 @@ html[data-theme="dark"] .project-meta .summary { color: var(--text); }
   .cards { grid-template-columns: repeat(2, 1fr); }
 }
 
-
-/* Let the CV embed go a bit wider than the standard container */
-.cv-wide { max-width: min(1200px, 100%); margin: 0 auto; }
-
-/* Full, scrollable PDF embed (you already added this, keep it last in the file) */
-.pdf-viewer {
-  display: block;
-  width: 100%;
-  height: calc(100vh - 160px);  /* tweak this number if you want it taller/shorter */
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: var(--surface);
-  box-shadow: var(--shadow);
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
 }
-
-@media (max-width: 900px) {
-  .pdf-viewer { height: calc(100vh - 220px); }
-}
-
-/* --- Social/contact icons --- */
-.intro__contacts.icons {
-  display: flex;
-  gap: 16px;
-  padding: 0;
-  margin: 12px 0;
-  list-style: none;
-}
-
-.intro__contacts.icons a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-  color: var(--text);
-  font-size: 20px;
-  transition: all 0.2s ease;
-  box-shadow: var(--shadow);
-}
-
-.intro__contacts.icons a:hover {
-  background: var(--brand);
-  color: #fff;
-  transform: translateY(-2px);
-}
-
-html[data-theme="dark"] .intro__contacts.icons a {
-  background: var(--surface);
-  border-color: var(--border);
-  color: var(--text);
-}
-

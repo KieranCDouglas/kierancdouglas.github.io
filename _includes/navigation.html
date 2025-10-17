@@ -1,19 +1,22 @@
 <nav class="navbar">
+  <!-- Optional brand/title (comment out if you don’t want it) -->
+  <!-- <a class="brand-link" href="{{ '/' | relative_url }}">{{ site.title }}</a> -->
+
   <ul>
-    {% assign current = page.url | replace: 'index.html','' | replace: '//','/' %}
     {% for item in site.data.navigation %}
-      {% assign raw = item.url | default: '/' %}
-      {% assign href = raw | relative_url %}
-      {% assign normalized = raw | replace: 'index.html','' | replace: '//','/' %}
       <li>
-        <a href="{{ href }}"
-           class="{% if current == normalized or current == href %}active{% endif %}">
+        <a href="{{ item.url | relative_url }}"
+           class="{% if page.url == item.url %}active{% endif %}">
           {{ item.name }}
         </a>
       </li>
     {% endfor %}
   </ul>
 
-  <!-- Theme toggle button (single source of truth) -->
-  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+  <!-- Elegant theme toggle button (icon is set by script) -->
+  <button id="theme-toggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Toggle dark mode">
+  </button>
 </nav>

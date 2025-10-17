@@ -1,10 +1,11 @@
 ---
-title: Mining Meaning: COnducting AI Assisted Literature Reviews of Economic Literature
-year: 2025
-summary: xxx
-links:
-code: https://github.com/AIDELabAZ/weather_metrics/tree/d7628205d9621559e618320bf8370fbd014636cc/lit_review
-  
+title: "Mining Meaning: Text-as-Data in Ag Policy"
+year: 2024
+tags: [nlp, policy]
+thumbnail: /assets/images/projects/miningmeaning.jpg
+summary: "Pilot study using topic modeling on comment letters."
+layout: project
+permalink: /my-work/miningmeaning/
 ---
 
-Optional longer description. You can add figures or sections here.
+Short teaser or body content here. You can add images, links, etc.

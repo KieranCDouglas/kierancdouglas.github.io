@@ -246,6 +246,21 @@ html[data-theme="dark"] .project-meta .summary { color: var(--text); }
   .cards { grid-template-columns: repeat(2, 1fr); }
 }
 
+
+/* Full, scrollable PDF embed */
+.pdf-viewer {
+  width: 100%;
+  height: calc(100vh - 160px); /* fills the screen minus header/footer */
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+/* Tighten spacing above/below the viewer on the CV page */
+.page-cv main.container { padding-top: 1rem; padding-bottom: 1rem; }
+
+
 @media (max-width: 640px) {
   .cards { grid-template-columns: 1fr; }
 }

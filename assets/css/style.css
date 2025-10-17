@@ -445,3 +445,10 @@ html[data-theme="dark"] .project-meta .summary { color: var(--text); }
     margin: 0 auto;
   }
 }
+/* Ensure icons sit centered and don't get baseline cropped */
+.tgl-icon { line-height: 0; }         /* removes text baseline space */
+.tgl-icon svg { display: block; }     /* removes inline-gap/bleed */
+
+/* Optional: a hair more inner spacing so icons never kiss the pill edge */
+.tgl-icon--sun { left: 10px; }        /* was 8px; adjust to taste */
+.tgl-icon--moon { right: 10px; }      /* was 8px */

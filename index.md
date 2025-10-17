@@ -22,7 +22,7 @@ links:
       <p>
 I am a graduate student at the University of California, Davis, pursuing an M.Sc. in Agricultural and Resource Economics. My academic interests center on development economics and public policy, with particular emphasis on migration, human health, food systems, and the environment. 
 
-I graduated *summa cum laude* from the University of Arizona in 2025 with a B.A. in Economics and a minor in Biostatistics, where I worked with Drs. Anna Josephson and Jeffrey Michler in the Applied International Development Economics Lab (AIDE). Through various projects I contributed to as an undergraduate, I developed a deep interest in methods research. This experience fostered a strong respect for reproducibility, open science, and the importance of ethics and skepticism in empirical work.
+I graduated summa cum laude from the University of Arizona in 2025 with a B.A. in Economics and a minor in Biostatistics, where I worked with Drs. Anna Josephson and Jeffrey Michler in the Applied International Development Economics Lab (AIDE). Through various projects I contributed to as an undergraduate, I developed a deep interest in methods research. This experience fostered a strong respect for reproducibility, open science, and the importance of ethics and skepticism in empirical work.
 
 Upon the completion of my master’s, I plan to pursue a Ph.D. in Economics to further explore the many questions I have about the world. Whether I end up in academia, industry, or government, I know I’ll be happiest so long as I have the freedom to be curious.
 

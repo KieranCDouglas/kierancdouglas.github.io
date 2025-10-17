@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=RedditSans:wght@400&display=swap');
-
 /* ===================== */
 /* THEME TOKENS          */
 /* ===================== */
@@ -51,8 +49,8 @@ html[data-theme="dark"] {
 body {
   margin: 0;
   font-family: "Chathura", sans-serif;
-  font-weight: 400;
-  font-size: 20px; /* Chathura runs narrow; bump size slightly for readability */
+  font-weight: 600;
+  font-size: 40px; /* Chathura runs narrow; bump size slightly for readability */
   line-height: 1.4;
   color: var(--text);
   background: var(--bg);
@@ -61,7 +59,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Chathura", sans-serif;
-  font-weight: 400;
+  font-weight: 800;
   letter-spacing: 0.02em;
 }
 

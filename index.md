@@ -3,7 +3,7 @@ layout: home
 title: Home
 show_header: false
 heading: Kieran Douglas
-avatar: /assets/stuff/imgme.HEIC       
+avatar: '/assets/stuff/imgme.HEIC'       
 about_blurb: Economics graduate student at UC Davis — research, writing, and extracurriculars.
 location: Davis, CA
 show_contacts: true

@@ -123,45 +123,109 @@ html[data-theme="dark"] .navbar a:hover { background: rgba(255,255,255,.06); box
 
 .navbar a.active { background: var(--brand); color: #fff; }
 
-/* dark-mode toggle button inside the sidebar */
+/* ===================== */
+/* SLIDING THEME TOGGLE  */
+/* ===================== */
+
+/* Button container (no text, icon-only) */
 .theme-toggle {
-  margin-top: auto;              /* push to bottom of sidebar */
+  margin-top: auto;                 /* push to bottom of sidebar */
   align-self: stretch;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;                   /* icon-only button */
-  height: 44px;
-  padding: 0;                    /* no text padding */
+  width: 64px;                      /* pill width */
+  height: 36px;                     /* pill height */
+  padding: 0;
   cursor: pointer;
-
-  border: 1px solid var(--border);
-  border-radius: 12px;           /* change to 50% if you want a perfect circle */
-  background: var(--surface);
+  border: none;                     /* the pill has its own border */
+  background: transparent;
   color: var(--text);
+}
+
+/* Keyboard focus ring */
+.theme-toggle:focus-visible {
+  outline: 3px solid var(--brand);
+  outline-offset: 3px;
+  border-radius: 999px;
+}
+
+/* The pill track */
+.tgl-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
   box-shadow: var(--shadow);
-  transition: filter .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+  display: inline-block;
+  transition: background .2s ease, border-color .2s ease;
 }
 
-.theme-toggle:hover {
-  filter: brightness(0.98);
+/* The thumb that slides */
+.tgl-thumb {
+  position: absolute;
+  top: 50%;
+  left: 2px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--brand);
+  box-shadow: 0 2px 6px rgba(0,0,0,.15);
+  transform: translate(0, -50%);
+  transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
 }
 
-/* optional: subtle hover background difference for dark mode */
-html[data-theme="dark"] .theme-toggle:hover {
-  background: var(--surface-2);
-}
-/* SVG in the toggle should look crisp and animate a touch */
-.theme-toggle svg {
-  display: block;
-  width: 20px;
-  height: 20px;
-  stroke: currentColor;
-  transition: transform .2s ease, color .3s ease;
+/* Sun/Moon icons on the track */
+.tgl-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  opacity: .85;
+  transition: color .25s ease, opacity .25s ease;
 }
 
-.theme-toggle:hover svg {
-  transform: rotate(20deg);
+.tgl-icon--sun { left: 8px; }
+.tgl-icon--moon { right: 8px; }
+
+/* Hover polish */
+.theme-toggle:hover .tgl-thumb { box-shadow: 0 4px 10px rgba(0,0,0,.18); }
+
+/* State when DARK is active: move thumb right, brighten moon, mute sun */
+html[data-theme="dark"] .tgl-thumb {
+  transform: translate(32px, -50%);      /* 64 - 30 - (2*2) ≈ 30; a hair more for spacing */
+  background: #2b3348;                    /* darker thumb in dark mode */
+}
+
+html[data-theme="dark"] .tgl-icon--moon { opacity: 1; color: #e7e7e7; }
+html[data-theme="dark"] .tgl-icon--sun  { opacity: .55; color: var(--muted); }
+
+/* State when LIGHT is active: thumb left, brighten sun, mute moon */
+html[data-theme="light"] .tgl-thumb {
+  transform: translate(0, -50%);
+  background: var(--brand);
+}
+
+html[data-theme="light"] .tgl-icon--sun  { opacity: 1; color: #222; }
+html[data-theme="light"] .tgl-icon--moon { opacity: .6; color: var(--muted); }
+
+/* Mobile sizing when sidebar collapses */
+@media (max-width: 900px) {
+  .theme-toggle {
+    margin-top: 0;
+    width: 56px;
+    height: 32px;
+  }
+  .tgl-thumb {
+    width: 26px;
+    height: 26px;
+    left: 2px;
+  }
+  html[data-theme="dark"] .tgl-thumb {
+    transform: translate(28px, -50%);
+  }
 }
 
 

@@ -13,10 +13,29 @@
     {% endfor %}
   </ul>
 
-  <!-- Elegant theme toggle button (icon is set by script) -->
-  <button id="theme-toggle"
-          class="theme-toggle"
-          type="button"
-          aria-label="Toggle dark mode">
-  </button>
-</nav>
+ <!-- Elegant sliding dark/light toggle -->
+<button id="theme-toggle"
+        class="theme-toggle slider"
+        type="button"
+        role="switch"
+        aria-checked="false"
+        aria-label="Toggle dark mode">
+  <span class="tgl-track">
+    <!-- decorative icons on the track -->
+    <span class="tgl-icon tgl-icon--sun" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 1v2m0 18v2M23 12h-2M3 12H1m16.95 6.95-1.41-1.41M6.46 6.46 5.05 5.05m12.9 0 1.41 1.41M6.46 17.54l-1.41 1.41"></path>
+      </svg>
+    </span>
+    <span class="tgl-icon tgl-icon--moon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 0 1 11.21 3 7 7 0 0 0 12 21a9 9 0 0 1 9-8.21Z"></path>
+      </svg>
+    </span>
+
+    <!-- the moving thumb -->
+    <span class="tgl-thumb" aria-hidden="true"></span>
+  </span>
+</button>
+

@@ -16,44 +16,37 @@ author:
 # -------------------------------------------------------------
 # Theme & Build Settings
 # -------------------------------------------------------------
-# No theme or remote theme specified — using your own layout and design
-# theme: none
-# remote_theme: none
-
-# Plugins supported by GitHub Pages
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  # - jekyll-sitemap   # (optional, supported by GitHub Pages)
 
-# Markdown processor
+# Markdown
 markdown: kramdown
 kramdown:
-  input: GFM    # GitHub-Flavored Markdown for better rendering
+  input: GFM
 
 # -------------------------------------------------------------
-# Navigation (optional: used only if your layout reads site.nav_items)
+# Collections
 # -------------------------------------------------------------
-nav_items:
-  - name: "Home"
-    link: "/"
-  - name: "CV"
-    link: "/cv/"
-  - name: "My Work"
-    link: "/my-work/"
-  - name: "Contact"
-    link: "/contact/"
-  - name: "Other Things"
-    link: "/other-things/"
+collections:
+  projects:
+    output: true
+    permalink: /my-work/:name/
 
 # -------------------------------------------------------------
-# Default Front Matter Behavior
+# Defaults
 # -------------------------------------------------------------
 defaults:
-  -
-    scope:
-      path: ""     # Applies to all files
+  - scope:
+      path: ""         # all files
     values:
       layout: "default"
+  - scope:
+      path: ""         # all project items
+      type: "projects"
+    values:
+      layout: "project"   # a layout you'll add below
 
 # -------------------------------------------------------------
 # Permalinks & File Handling

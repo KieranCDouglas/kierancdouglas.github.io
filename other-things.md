@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Other Things
+title: Other Stuff
 permalink: /other-things/
 ---
 

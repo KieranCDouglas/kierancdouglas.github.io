@@ -1,3 +1,32 @@
+:root {
+  --max-width: 760px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: #222;
+  background: #fff;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.site-header { background: #fafafa; border-bottom: 1px solid #eee; }
+.site-title { margin: 0; font-size: 1.4rem; }
+.site-title a { text-decoration: none; color: inherit; }
+.site-tagline { margin: .25rem 0 0; color: #777; }
+
+main.container { padding: 2rem 1rem; }
+
+.site-footer { border-top: 1px solid #eee; background: #fafafa; padding: 1rem 0; color: #666; }
+
+/* Your existing navbar styles */
 .navbar ul {
   list-style: none;
   display: flex;

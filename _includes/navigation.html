@@ -21,24 +21,21 @@
           aria-checked="false"
           aria-label="Toggle dark mode">
     <span class="tgl-track">
-      <!-- Sun icon (left) -->
-      <span class="tgl-icon tgl-icon--sun" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="16" height="16"
-             fill="none" stroke="currentColor" stroke-width="1.8"
-             stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="5"></circle>
-          <path d="M12 1v2m0 18v2M23 12h-2M3 12H1
-                   m16.95 6.95-1.41-1.41M6.46 6.46 5.05 5.05
-                   m12.9 0 1.41 1.41M6.46 17.54l-1.41 1.41"></path>
-        </svg>
-      </span>
+      <!-- Sun icon (filled, crisp) -->
+<span class="tgl-icon tgl-icon--sun" aria-hidden="true">
+  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+    <!-- Heroicons Mini "Sun" (solid) -->
+    <path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Zm0 4a1 1 0 0 1-1-1v-1a1 1 0 1 1 2 0v1a1 1 0 0 1-1 1Zm0-20a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1Zm9 11a1 1 0 1 1 0-2h1a1 1 0 1 1 0 2h-1ZM3 12a1 1 0 1 1 0-2H2a1 1 0 1 1 0 2h1Zm15.364 6.364a1 1 0 1 1-1.414-1.414l.707-.707a1 1 0 1 1 1.414 1.414l-.707.707Zm-12.728-12.728a1 1 0 0 1 1.414 0l.707.707A1 1 0 0 1 6.343 7.757l-.707-.707a1 1 0 0 1 0-1.414Zm12.728 0a1 1 0 0 1 0 1.414l-.707.707a1 1 0 0 1-1.414-1.414l.707-.707a1 1 0 0 1 1.414 0ZM6.343 18.364a1 1 0 1 1-1.414-1.414l.707-.707a1 1 0 1 1 1.414 1.414l-.707.707Z"/>
+  </svg>
+</span>
 
-      <!-- Moon icon (right) — cleaner crescent -->
-      <span class="tgl-icon tgl-icon--moon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
-          <path d="M21.75 15.5a9.25 9.25 0 1 1-9.25-9.25c.24 0 .47.01.7.03a7.5 7.5 0 1 0 8.55 9.22z"></path>
-        </svg>
-      </span>
+<!-- Moon icon (filled crescent, no cropping) -->
+<span class="tgl-icon tgl-icon--moon" aria-hidden="true">
+  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+    <!-- Heroicons Mini "Moon" (solid) -->
+    <path d="M21.752 15.002A9.718 9.718 0 0 1 12 22.75a9.75 9.75 0 0 1-9.75-9.75 9.718 9.718 0 0 1 7.748-9.552 0.75 0.75 0 0 1 .84 1.042A8.25 8.25 0 1 0 20.71 14.162a0.75 0.75 0 0 1 1.042.84Z"/>
+  </svg>
+</span>
 
       <!-- The sliding thumb -->
       <span class="tgl-thumb" aria-hidden="true"></span>

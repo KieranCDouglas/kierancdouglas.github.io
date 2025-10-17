@@ -1,0 +1,8 @@
+- name: CV
+  url: /cv/
+- name: My Work
+  url: /my-work/
+- name: Contact
+  url: /contact/
+- name: Other Things
+  url: /other-things/

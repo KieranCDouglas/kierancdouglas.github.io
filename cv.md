@@ -1,19 +1,9 @@
 ---
-layout: default
+layout: cv
 title: CV
 permalink: /cv/
 ---
 
-<p>
-  <a class="btn btn--primary"
-     href="{{ 'assets/stuff/CV (4).pdf' | relative_url }}"
-     target="_blank" rel="noopener">
-    Download CV (PDF)
-  </a>
-</p>
-
-<iframe
-  class="pdf-viewer"
-  src="{{ '/assets/cv/Kieran-Douglas-CV.pdf' | relative_url }}"
-  loading="lazy">
-</iframe>
+<iframe class="pdf-viewer-wide"
+  src="{{ 'assets/stuff/CV (4).pdf' | relative_url }}"
+  loading="lazy"></iframe>

@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Other Stuff
+title: Other Things
 permalink: /other-things/
 ---
 
-# Other Stuff
+# Other Things
 <p>Notes, book lists, thoughts, etc.</p>

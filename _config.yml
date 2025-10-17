@@ -1,34 +1,70 @@
-# Site info
+# -------------------------------------------------------------
+# Site Information
+# -------------------------------------------------------------
 title: "Kieran Douglas"
 description: "Economics graduate student at UC Davis"
-url: "https://kierandouglas.com"   # your website base URL
-baseurl: ""                        # leave empty for root domain
+url: "https://kierandouglas.com"    # Full URL to your site
+baseurl: ""                         # Leave empty for root domain
 
-# Author info
+# -------------------------------------------------------------
+# Author Information
+# -------------------------------------------------------------
 author:
   name: "Kieran Douglas"
   email: "kcdouglas@ucdavis.edu"
 
-# Theme and build settings
-remote_theme: jekyll-theme-cayman       
+# -------------------------------------------------------------
+# Theme & Build Settings
+# -------------------------------------------------------------
+# No theme or remote theme specified — using your own layout and design
+# theme: none
+# remote_theme: none
+
+# Plugins supported by GitHub Pages
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
-# Navigation or custom variables
+# Markdown processor
+markdown: kramdown
+kramdown:
+  input: GFM    # GitHub-Flavored Markdown for better rendering
+
+# -------------------------------------------------------------
+# Navigation (optional: used only if your layout reads site.nav_items)
+# -------------------------------------------------------------
 nav_items:
   - name: "Home"
     link: "/"
-  - name: "About"
-    link: "/about/"
   - name: "CV"
     link: "/cv/"
+  - name: "My Work"
+    link: "/my-work/"
+  - name: "Contact"
+    link: "/contact/"
+  - name: "Other Things"
+    link: "/other-things/"
 
-# Permalink structure
+# -------------------------------------------------------------
+# Default Front Matter Behavior
+# -------------------------------------------------------------
+defaults:
+  -
+    scope:
+      path: ""     # Applies to all files
+    values:
+      layout: "default"
+
+# -------------------------------------------------------------
+# Permalinks & File Handling
+# -------------------------------------------------------------
 permalink: /:categories/:title/
-
-# Files to exclude from build
 exclude:
   - README.md
   - node_modules
   - vendor
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - .gitignore
+  - _site

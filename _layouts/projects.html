@@ -1,27 +1,54 @@
----
-# no front matter values needed; kept for Jekyll parsing
----
+<!DOCTYPE html>
+<html lang="en" data-theme="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ page.title }} | {{ site.title }}</title>
+    {%- seo -%}
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  </head>
+  <body>
+    {% include navigation.html %}
 
-{% comment %} Uses the site-wide default wrapper in _layouts/default.html {% endcomment %}
-<article class="project">
-  <header>
-    <h1>{{ page.title }}</h1>
-    {% if page.year %}<p class="muted">Year: {{ page.year }}</p>{% endif %}
-    {% if page.tags %}<p class="muted">Tags: {{ page.tags | join: ", " }}</p>{% endif %}
-    {% if page.links %}
-      <p class="project-links">
-        {% if page.links.paper %}<a href="{{ page.links.paper }}" target="_blank" rel="noopener">Paper</a>{% endif %}
-        {% if page.links.code %} · <a href="{{ page.links.code }}" target="_blank" rel="noopener">Code</a>{% endif %}
-        {% if page.links.slides %} · <a href="{{ page.links.slides }}" target="_blank" rel="noopener">Slides</a>{% endif %}
-      </p>
-    {% endif %}
-  </header>
+    <main class="container">
+      <article class="project">
+        <header>
+          <h1>{{ page.title }}</h1>
+          {% if page.year or page.tags %}
+            <p class="card__meta">
+              {% if page.year %}{{ page.year }}{% endif %}
+              {% if page.tags %} • {{ page.tags | join: ', ' }}{% endif %}
+            </p>
+          {% endif %}
+          {% if page.thumbnail %}
+            <img src="{{ page.thumbnail | relative_url }}" alt="" class="project-thumb" style="max-width:100%;border-radius:12px;margin:8px 0 16px;">
+          {% endif %}
+        </header>
+        {{ content }}
+      </article>
+    </main>
 
-  {% if page.thumbnail %}
-    <p><img src="{{ page.thumbnail | relative_url }}" alt="{{ page.title }}" style="max-width:100%;height:auto;border-radius:12px" /></p>
-  {% endif %}
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}</p>
+      </div>
+    </footer>
 
-  <div class="content">
-    {{ content }}
-  </div>
-</article>
+    <!-- Theme script -->
+    <script>
+    (function () {
+      const KEY='theme', root=document.documentElement;
+      const saved=localStorage.getItem(KEY);
+      const prefers=window.matchMedia('(prefers-color-scheme: dark)').matches;
+      root.setAttribute('data-theme', saved || (prefers?'dark':'light'));
+      function wire(){
+        const b=document.getElementById('theme-toggle'); if(!b) return;
+        const set=()=>{ const d=root.getAttribute('data-theme')==='dark'; b.textContent=d?'☀️':'🌙'; };
+        set();
+        b.addEventListener('click',()=>{ const next=root.getAttribute('data-theme')==='dark'?'light':'dark'; root.setAttribute('data-theme',next); localStorage.setItem(KEY,next); set();});
+      }
+      document.readyState==='loading'?document.addEventListener('DOMContentLoaded',wire):wire();
+    })();
+    </script>
+  </body>
+</html>

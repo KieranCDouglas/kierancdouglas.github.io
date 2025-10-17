@@ -19,10 +19,10 @@ svg { fill: currentColor; }
   /* LIGHT theme */
   --bg: #D9DCD6;        /* page background */
   --text: #222222;
-  --muted: #6f6f6f;
+  --muted: #222222;
   --surface: #ffffff;   /* cards/content */
   --surface-2: #BAC49D; /* sidebar/track */
-  --border: #e6e6e6;
+  --border: #BAC49D;
 
   /* Accent for buttons/toggle in LIGHT */
   --brand: #16425B;     /* active sidebar & toggle thumb */
@@ -36,7 +36,7 @@ html[data-theme="dark"] {
   /* DARK theme */
   --bg: #114B5F;        /* page background */
   --text: #ffffff;      /* general text */
-  --muted: #bfe9d2;     /* softened text */
+  --muted: #ffffff;     /* softened text */
   --surface: #0f3a49;   /* cards/content */
   --surface-2: #0e3440; /* sidebar/track */
   --border: #0c2d38;

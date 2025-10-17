@@ -74,6 +74,9 @@
         {% endif %}
       </article>
 
+      <!-- Render the page body (e.g., your About Me section in index.md) -->
+      {{ content }}
+
       {% assign project_count = site.projects | size %}
       {% if page.show_featured != false and project_count > 0 %}
       <section>

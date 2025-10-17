@@ -1,0 +1,34 @@
+# Site info
+title: "Kieran Douglas"
+description: "Economics graduate student at UC Davis"
+url: "https://kierandouglas.com"   # your website base URL
+baseurl: ""                        # leave empty for root domain
+
+# Author info
+author:
+  name: "Kieran Douglas"
+  email: "kcdouglas@ucdavis.edu"
+
+# Theme and build settings
+remote_theme: jekyll-theme-cayman       
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Navigation or custom variables
+nav_items:
+  - name: "Home"
+    link: "/"
+  - name: "About"
+    link: "/about/"
+  - name: "CV"
+    link: "/cv/"
+
+# Permalink structure
+permalink: /:categories/:title/
+
+# Files to exclude from build
+exclude:
+  - README.md
+  - node_modules
+  - vendor

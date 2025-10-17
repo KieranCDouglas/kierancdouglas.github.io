@@ -51,3 +51,52 @@ main.container { padding: 2rem 1rem; }
   background: #0088cc;
   color: #fff;
 }
+
+/* --- Project list styles --- */
+.project-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  display: grid;
+  gap: 16px;
+}
+.project-card {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 12px;
+  background: #fff;
+  transition: box-shadow 0.2s ease;
+}
+.project-card:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.project-link {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+}
+.project-thumb {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.project-meta .muted {
+  color: #777;
+  font-weight: 400;
+}
+.project-meta .summary {
+  color: #444;
+  margin-top: 4px;
+}
+@media (max-width: 640px) {
+  .project-link {
+    grid-template-columns: 1fr;
+  }
+  .project-thumb {
+    width: 100%;
+    height: auto;
+  }
+}

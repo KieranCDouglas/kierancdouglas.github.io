@@ -4,5 +4,16 @@ title: CV
 permalink: /cv/
 ---
 
-<h1>CV</h1>
-<p>You can download my CV <a href="{{ '/assets/Kieran-Douglas-CV.pdf' | relative_url }}">here</a>.</p>
+<p>
+  <a class="btn btn--primary"
+     href="{{ '/assets/cv/Kieran-Douglas-CV.pdf' | relative_url }}"
+     target="_blank" rel="noopener">
+    Download CV (PDF)
+  </a>
+</p>
+
+<iframe
+  class="pdf-viewer"
+  src="{{ '/assets/cv/Kieran-Douglas-CV.pdf' | relative_url }}"
+  loading="lazy">
+</iframe>

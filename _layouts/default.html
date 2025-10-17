@@ -29,5 +29,35 @@
         <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}</p>
       </div>
     </footer>
+    <script>
+(function () {
+  const KEY = 'theme';
+  const root = document.documentElement;
+  const btn  = document.getElementById('theme-toggle');
+
+  // Prefer saved value, otherwise system preference
+  const saved = localStorage.getItem(KEY);
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const initial = saved || (prefersDark ? 'dark' : 'light');
+  root.setAttribute('data-theme', initial);
+
+  function setIcon() {
+    if (!btn) return;
+    const isDark = root.getAttribute('data-theme') === 'dark';
+    btn.textContent = isDark ? '☀️' : '🌙';
+    btn.title = isDark ? 'Switch to light mode' : 'Switch to dark mode';
+  }
+  setIcon();
+
+  if (btn) {
+    btn.addEventListener('click', function () {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem(KEY, next);
+      setIcon();
+    });
+  }
+})();
+</script>
   </body>
 </html>

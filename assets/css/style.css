@@ -1,9 +1,9 @@
 /* ===================== */
-/* FONT SETUP (fonts now loaded in HTML <head>) */
+/* FONT SETUP (fonts loaded in HTML <head>) */
 /* ===================== */
-/* (removed @import to avoid double-loading) */
+/* no @import here to avoid double-loading */
 
-/* ---- Defensive baseline (prevents layout/icon glitches) ---- */
+/* Defensive baseline */
 *, *::before, *::after { box-sizing: border-box; }
 html { line-height: 1.15; -webkit-text-size-adjust: 100%; }
 img, svg, video, canvas, audio, iframe, embed, object { display: block; max-width: 100%; }
@@ -17,34 +17,38 @@ svg { fill: currentColor; }
   --max-width: 960px;
 
   /* LIGHT theme */
-  --bg: #D9DCD6;
+  --bg: #D9DCD6;        /* page background */
   --text: #222222;
   --muted: #6f6f6f;
-  --surface: #ffffff;
-  --surface-2: #f5f6f8;
+  --surface: #ffffff;   /* cards/content */
+  --surface-2: #f5f6f8; /* sidebar/track */
   --border: #e6e6e6;
 
-  --brand: #16425B;
-  --on-brand: #ffffff;
+  /* Accent for buttons/toggle in LIGHT */
+  --brand: #16425B;     /* active sidebar & toggle thumb */
+  --on-brand: #ffffff;  /* text/icon on brand bg */
 
   --radius: 16px;
   --shadow: 0 6px 24px rgba(0,0,0,.06);
 }
 
 html[data-theme="dark"] {
-  --bg: #114B5F;
-  --text: #ffffff;
-  --muted: #bfe9d2;
-  --surface: #0f3a49;
-  --surface-2: #0e3440;
+  /* DARK theme */
+  --bg: #114B5F;        /* page background */
+  --text: #ffffff;      /* general text */
+  --muted: #bfe9d2;     /* softened text */
+  --surface: #0f3a49;   /* cards/content */
+  --surface-2: #0e3440; /* sidebar/track */
   --border: #0c2d38;
 
-  --brand: #D9DCD6;
-  --on-brand: #0f1115;
+  /* Accent for buttons/toggle in DARK */
+  --brand: #D9DCD6;     /* active sidebar & toggle thumb */
+  --on-brand: #0f1115;  /* readable text on light brand chip */
 
   --shadow: 0 8px 28px rgba(0,0,0,.45);
 }
 
+/* Respect system preference if user hasn't chosen */
 @media (prefers-color-scheme: dark) {
   html:not([data-theme="light"]):not([data-theme="dark"]) { color-scheme: dark; }
 }
@@ -56,39 +60,19 @@ body {
   margin: 0;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 1rem; /* Montserrat reads well at normal base size */
   line-height: 1.6;
   color: var(--text);
   background: var(--bg);
-  padding-left: 220px;
+  padding-left: 220px; /* for sidebar */
 }
 
-/* ===================== */
-/* TYPOGRAPHY ASSIGNMENTS */
-/* ===================== */
-h1, h2, h3, h4, h5, h6,
-.brand-link,
-.navbar a,
-.section-title {
+h1, h2, h3, h4, h5, h6 {
   font-family: "Asap Condensed", "Montserrat", sans-serif;
   font-weight: 400;
   letter-spacing: 0.02em;
 }
 
-.site-footer,
-.card__meta,
-.intro__contacts,
-.about-me__text small,
-.cv-wide,
-.project-meta .muted {
-  font-family: "Roboto Mono", monospace;
-  font-weight: 400;
-  letter-spacing: 0.01em;
-}
-
-/* ===================== */
-/* CONTAINERS / LAYOUT   */
-/* ===================== */
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -103,10 +87,12 @@ main.container { padding: 2rem 1rem; }
   padding: 1rem 0;
   color: var(--muted);
   text-align: center;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 400;
   font-size: 0.9rem;
 }
 
-/* Focus styles */
+/* Focus styles for accessibility */
 a:focus-visible,
 button:focus-visible {
   outline: 3px solid var(--brand);
@@ -115,11 +101,11 @@ button:focus-visible {
 }
 
 /* ===================== */
-/* SIDEBAR NAV           */
+/* SIDEBAR NAV (DESKTOP) */
 /* ===================== */
 .navbar {
   position: fixed;
-  inset: 0 auto 0 0;
+  inset: 0 auto 0 0;     /* left sidebar */
   width: 220px;
   height: 100vh;
   display: flex;
@@ -132,14 +118,17 @@ button:focus-visible {
   z-index: 1000;
 }
 
-.brand-link {
-  font-weight: 400;
-  text-decoration: none;
-  color: var(--text);
+/* optional brand link (if you add it in navigation.html) */
+.brand-link { 
+  font-family: "Asap Condensed", "Montserrat", sans-serif;
+  font-weight: 400; 
+  text-decoration: none; 
+  color: var(--text); 
   margin-bottom: 6px;
 }
 .brand-link:hover { opacity: .85; }
 
+/* vertical link list */
 .navbar ul {
   list-style: none;
   display: flex;
@@ -148,25 +137,28 @@ button:focus-visible {
   padding: 0;
   margin: 0;
   background: transparent;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .navbar a {
   display: block;
   text-decoration: none;
   color: var(--text);
+  font-family: "Asap Condensed", "Montserrat", sans-serif;
   font-weight: 400;
   padding: 10px 12px;
   border-radius: 10px;
-  transition: background .2s, color .2s, box-shadow .2s;
+  transition: background .2s, color .2s, transform .05s, box-shadow .2s;
 }
 
-/* Active link */
+/* Active state = brand chip with readable text */
 .navbar a.active {
   background: var(--brand);
   color: var(--on-brand);
 }
 
-/* Hover only for non-active links */
+/* Only apply hover to NON-active links */
 .navbar a:hover:not(.active) {
   background: color-mix(in srgb, var(--brand) 12%, transparent);
   box-shadow: 0 2px 6px rgba(0,0,0,.06);
@@ -175,7 +167,7 @@ button:focus-visible {
   .navbar a:hover:not(.active) { background: rgba(22,66,91,0.12); }
 }
 
-/* Dark mode hover (non-active) */
+/* Dark-mode hover (non-active only) */
 html[data-theme="dark"] .navbar a:hover:not(.active) {
   background: color-mix(in srgb, var(--brand) 10%, transparent);
   box-shadow: none;
@@ -184,7 +176,7 @@ html[data-theme="dark"] .navbar a:hover:not(.active) {
   html[data-theme="dark"] .navbar a:hover:not(.active) { background: rgba(228,253,225,0.10); }
 }
 
-/* Prevent hover change on active item */
+/* Optional: ensure no change when hovering the active item */
 .navbar a.active:hover {
   background: var(--brand);
   color: var(--on-brand);
@@ -192,16 +184,18 @@ html[data-theme="dark"] .navbar a:hover:not(.active) {
 }
 
 /* ===================== */
-/* THEME TOGGLE          */
+/* SLIDING THEME TOGGLE  */
 /* ===================== */
+
+/* Compact button (don’t stretch full width) */
 .theme-toggle {
-  margin-top: auto;
-  align-self: flex-start;
+  margin-top: auto;              /* keep it near bottom of sidebar */
+  align-self: flex-start;        /* no stretching */
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 64px;
-  height: 36px;
+  width: 64px;                   /* pill width */
+  height: 36px;                  /* pill height */
   padding: 0;
   cursor: pointer;
   border: 0;
@@ -209,12 +203,14 @@ html[data-theme="dark"] .navbar a:hover:not(.active) {
   color: var(--text);
 }
 
+/* Keyboard focus ring */
 .theme-toggle:focus-visible {
   outline: 3px solid var(--brand);
   outline-offset: 3px;
   border-radius: 999px;
 }
 
+/* The pill track */
 .tgl-track {
   position: relative;
   display: inline-block;
@@ -227,6 +223,7 @@ html[data-theme="dark"] .navbar a:hover:not(.active) {
   transition: background .2s ease, border-color .2s ease;
 }
 
+/* The thumb that slides — uses brand in BOTH themes */
 .tgl-thumb {
   position: absolute;
   top: 50%;
@@ -238,36 +235,53 @@ html[data-theme="dark"] .navbar a:hover:not(.active) {
   color: var(--on-brand);
   box-shadow: 0 2px 6px rgba(0,0,0,.15);
   transform: translate(0, -50%);
-  transition: transform .25s ease, background .25s ease;
+  transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
 }
 
+/* Sun/Moon icons on the track */
 .tgl-icon {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   color: var(--muted);
   opacity: .9;
+  line-height: 0;               /* avoid baseline cropping */
 }
 .tgl-icon svg { display: block; }
 
 .tgl-icon--sun  { left: 9px; }
 .tgl-icon--moon { right: 9px; }
 
+/* Hover polish */
 .theme-toggle:hover .tgl-thumb { box-shadow: 0 4px 10px rgba(0,0,0,.18); }
 
+/* DARK active: move thumb right, brighten moon, mute sun */
 html[data-theme="dark"] .tgl-thumb {
-  transform: translate(32px, -50%);
+  transform: translate(32px, -50%);   /* 64 - 30 - (2*2) ≈ 30 + a hair */
   background: var(--brand);
 }
-html[data-theme="dark"] .tgl-icon--moon { opacity: 1; color: var(--text); }
+html[data-theme="dark"] .tgl-icon--moon { opacity: 1;  color: var(--text); }
 html[data-theme="dark"] .tgl-icon--sun  { opacity: .55; color: var(--muted); }
 
+/* LIGHT active: thumb left, brighten sun, mute moon */
 html[data-theme="light"] .tgl-thumb {
   transform: translate(0, -50%);
   background: var(--brand);
 }
-html[data-theme="light"] .tgl-icon--sun  { opacity: 1; color: #222; }
+html[data-theme="light"] .tgl-icon--sun  { opacity: 1;  color: #222; }
 html[data-theme="light"] .tgl-icon--moon { opacity: .6; color: var(--muted); }
+
+/* Mobile sizing when sidebar collapses */
+@media (max-width: 900px) {
+  .theme-toggle {
+    margin-top: 0;
+    width: 56px;
+    height: 32px;
+  }
+  .tgl-track { width: 56px; height: 32px; }
+  .tgl-thumb  { width: 26px; height: 26px; left: 2px; }
+  html[data-theme="dark"] .tgl-thumb { transform: translate(28px, -50%); }
+}
 
 /* ===================== */
 /* BUTTONS               */
@@ -302,29 +316,29 @@ html[data-theme="dark"] .btn--ghost:hover { background: rgba(255,255,255,.06); }
   margin: 28px 0 12px;
 }
 
-.intro__title {
+.intro__title { 
   font-family: "Asap Condensed", sans-serif;
-  margin: 0 0 .25rem;
-  font-size: clamp(28px, 4vw, 40px);
-  line-height: 1.2;
+  margin: 0 0 .25rem; 
+  font-size: clamp(28px, 4vw, 40px); 
+  line-height: 1.2; 
 }
-
-.intro__blurb {
-  font-family: "Montserrat", sans-serif;
-  color: #444;
-  margin: 0 0 12px;
+.intro__blurb { 
+  font-family: "Montserrat", sans-serif; 
+  color: #444; 
+  margin: 0 0 12px; 
 }
 html[data-theme="dark"] .intro__blurb { color: var(--muted); }
-
-.intro__contacts {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 12px;
-  color: var(--text);
-  font-family: "Roboto Mono", monospace;
-  font-size: 0.9rem;
+.intro__contacts { 
+  list-style: none; 
+  padding: 0; 
+  margin: 0 0 12px; 
+  color: var(--text); 
+  font-family: "Roboto Mono", monospace; 
+  font-size: 0.9rem; 
 }
+.intro__contacts li { margin: 4px 0; }
 
+/* Email link = same color as text by default */
 .intro__contacts a {
   color: var(--text);
   text-decoration: none;
@@ -335,26 +349,111 @@ html[data-theme="dark"] .intro__blurb { color: var(--muted); }
   text-decoration: underline;
 }
 
-/* ===================== */
-/* FOOTER, CARDS, ETC.   */
-/* ===================== */
-.card__meta {
-  font-family: "Roboto Mono", monospace;
-  font-size: 0.85rem;
-  color: var(--muted);
+.intro__image img {
+  width: 100%;
+  height: auto;
+  max-height: 320px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  display: block;
 }
 
-.section-title {
-  text-align: center;
-  margin: 40px 0 12px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
+/* --- Social icon buttons (uses <ul class="social-icons">) --- */
+.social-icons {
+  display: flex;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+}
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  transition: transform .15s ease, background .2s ease, color .2s ease, border-color .2s ease;
+}
+.social-icons a:hover {
+  transform: translateY(-2px);
+  background: var(--brand);
+  border-color: var(--brand);
+  color: var(--on-brand);
+}
+/* Optional brand colors on hover */
+.social-icons a[aria-label="LinkedIn"]:hover { background: #0A66C2; border-color: #0A66C2; }
+.social-icons a[aria-label="GitHub"]:hover   { background: #24292e; border-color: #24292e; }
+.social-icons a[aria-label="Substack"]:hover { background: #ff6719; border-color: #ff6719; }
+html[data-theme="dark"] .social-icons a { background: var(--surface); border-color: var(--border); color: var(--text); }
+
+/* ===================== */
+/* SECTIONS / CARDS      */
+/* ===================== */
+.section-title { 
+  text-align: center; 
+  margin: 40px 0 12px; 
+  letter-spacing: .12em; 
+  text-transform: uppercase; 
   font-family: "Asap Condensed", sans-serif;
 }
 
-/* Responsive cleanup */
+.cards {
+  list-style: none; padding: 0; margin: 0 0 40px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+}
+.card  { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+.card__link { text-decoration: none; color: inherit; display: block; }
+.card__thumb { width: 100%; height: 160px; object-fit: cover; }
+.card__body { padding: 12px 14px 16px; }
+.card__title { margin: 0 0 4px; font-size: 1.05rem; font-family: "Asap Condensed", sans-serif; }
+.card__meta { margin: 0 0 8px; color: var(--muted); font-family: "Roboto Mono", monospace; }
+.card__summary { margin: 0; color: #444; font-family: "Montserrat", sans-serif; }
+html[data-theme="dark"] .card__summary { color: var(--text); }
+html[data-theme="dark"] .card__meta { color: #b6c0d0; }
+
+/* ===================== */
+/* PROJECT LIST (legacy) */
+/* ===================== */
+.project-list { list-style: none; padding: 0; margin: 1rem 0; display: grid; gap: 16px; }
+.project-card { border: 1px solid var(--border); border-radius: 12px; padding: 12px; background: var(--surface); transition: box-shadow .2s ease; }
+.project-card:hover { box-shadow: var(--shadow); }
+.project-link { display: grid; grid-template-columns: 120px 1fr; gap: 12px; text-decoration: none; color: inherit; }
+.project-thumb { width: 120px; height: 80px; object-fit: cover; border-radius: 8px; }
+.project-meta .muted { color: var(--muted); font-weight: 400; font-family: "Roboto Mono", monospace; }
+.project-meta .summary { color: #444; margin-top: 4px; font-family: "Montserrat", sans-serif; }
+html[data-theme="dark"] .project-meta .summary { color: var(--text); }
+
+/* ===================== */
+/* CV / PDF VIEWER       */
+/* ===================== */
+.cv-wide { max-width: min(1200px, 100%); margin: 0 auto; }
+
+.pdf-viewer {
+  display: block;
+  width: 100%;
+  height: calc(100vh - 160px);  /* adjust if needed */
+  min-height: 420px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
 @media (max-width: 900px) {
-  body { padding-left: 0; }
+  .pdf-viewer { height: calc(100vh - 220px); }
+}
+
+/* ===================== */
+/* RESPONSIVE            */
+/* ===================== */
+@media (max-width: 900px) {
+  body { padding-left: 0; } /* collapse sidebar */
   .navbar {
     position: static;
     width: auto;
@@ -373,5 +472,64 @@ html[data-theme="dark"] .intro__blurb { color: var(--muted); }
     border-radius: 8px;
     box-shadow: var(--shadow);
     flex: 1;
+  }
+  .theme-toggle { margin-top: 0; width: auto; }
+
+  .intro { grid-template-columns: 1fr; }
+  .cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+
+/* ===================== */
+/* HOME: ABOUT ME SECTION */
+/* ===================== */
+.about-me {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 32px;
+  margin-top: 40px;
+}
+
+.about-me h2 {
+  margin-top: 0;
+  font-size: 1.6rem;
+  text-align: left;
+  font-family: "Asap Condensed", sans-serif;
+}
+
+.about-me__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 28px;
+  align-items: start;
+  margin-top: 16px;
+}
+
+.about-me__text p {
+  margin-bottom: 1rem;
+  color: var(--text);
+  font-family: "Montserrat", sans-serif;
+}
+
+.about-me__image img {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  display: block;
+}
+
+@media (max-width: 800px) {
+  .about-me__grid {
+    grid-template-columns: 1fr;
+  }
+  .about-me__image img {
+    margin: 0 auto;
   }
 }

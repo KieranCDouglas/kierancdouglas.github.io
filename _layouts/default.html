@@ -1,23 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ page.title }} | {{ site.title }}</title>
-
-    {%- seo -%}  <!-- jekyll-seo-tag -->
-
+    {%- seo -%}
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
     <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
   </head>
   <body>
-    <header class="site-header">
-      <div class="container">
-        <h1 class="site-title"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
-        <p class="site-tagline">{{ site.description }}</p>
-      </div>
-    </header>
-
     {% include navigation.html %}
 
     <main class="container">
@@ -29,35 +20,45 @@
         <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}</p>
       </div>
     </footer>
+
+    <!-- Theme script (needed on ALL pages) -->
     <script>
-(function () {
-  const KEY = 'theme';
-  const root = document.documentElement;
-  const btn  = document.getElementById('theme-toggle');
+    (function () {
+      const KEY = 'theme';
+      const root = document.documentElement;
 
-  // Prefer saved value, otherwise system preference
-  const saved = localStorage.getItem(KEY);
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const initial = saved || (prefersDark ? 'dark' : 'light');
-  root.setAttribute('data-theme', initial);
+      // Prefer saved value, otherwise system preference
+      const saved = localStorage.getItem(KEY);
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const initial = saved || (prefersDark ? 'dark' : 'light');
+      root.setAttribute('data-theme', initial);
 
-  function setIcon() {
-    if (!btn) return;
-    const isDark = root.getAttribute('data-theme') === 'dark';
-    btn.textContent = isDark ? '☀️' : '🌙';
-    btn.title = isDark ? 'Switch to light mode' : 'Switch to dark mode';
-  }
-  setIcon();
+      function setIcon(btn) {
+        if (!btn) return;
+        const isDark = root.getAttribute('data-theme') === 'dark';
+        btn.textContent = isDark ? '☀️' : '🌙';
+        btn.title = isDark ? 'Switch to light mode' : 'Switch to dark mode';
+      }
 
-  if (btn) {
-    btn.addEventListener('click', function () {
-      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', next);
-      localStorage.setItem(KEY, next);
-      setIcon();
-    });
-  }
-})();
-</script>
+      // Might render after HTML; handle late binding:
+      function wire() {
+        const btn = document.getElementById('theme-toggle');
+        if (!btn) return;
+        setIcon(btn);
+        btn.addEventListener('click', function () {
+          const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+          root.setAttribute('data-theme', next);
+          localStorage.setItem(KEY, next);
+          setIcon(btn);
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', wire);
+      } else {
+        wire();
+      }
+    })();
+    </script>
   </body>
 </html>

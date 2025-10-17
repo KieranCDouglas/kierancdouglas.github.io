@@ -1,0 +1,11 @@
+---
+title: "Prompt Engineering Made Easy (PEME)"
+year: 2025
+tags: [llm, prompt engineering, methods]
+thumbnail: /assets/images/projects/miningmeaning.jpg
+summary: "PEME is a custom GPT designed to aid researchers in developing efficient and high quality prompts for their LLM queries."
+layout: project
+permalink: /my-work/peme/
+---
+
+Short teaser or body content here. You can add images, links, etc.

@@ -16,17 +16,17 @@ svg { fill: currentColor; }
 :root {
   --max-width: 960px;
 
-  /* LIGHT — off-white, muted earth, navy nav */
-  --bg: #e9e6dc;         /* page background */
+  /* LIGHT — refreshed to harmonize with dark mode */
+  --bg: #F0EBD8;         /* page background */
   --text: #212525;
-  --muted: #bfafa6;      /* earthy muted for metadata */
-  --surface: #DCC9B6;    /* off-white/earthy content bubbles */
-  --surface-2: #22333B;  /* NAVBAR (dark navy, darker than bg) */
-  --nav-text: #e9e6dc;   /* nav/link text on dark bar */
-  --border: #D5C6B6;     /* soft neutral border */
+  --muted: #8E9A9C;      /* neutral cool gray for metadata */
+  --surface: #CAD2C5;    /* soft cool gray-green content bubbles */
+  --surface-2: #22333B;  /* NAVBAR (dark navy, same as dark mode) */
+  --nav-text: #F0EBD8;   /* nav/link text on dark bar */
+  --border: #B7C2B9;     /* subtle green-gray border */
 
-  /* Accent / brand (muted steel navy / teal) */
-  --brand: #598392;
+  /* Accent / brand (muted teal/green tone matching dark mode) */
+  --brand: #84A59D;
   --on-brand: #FFFFFF;
 
   --radius: 16px;
@@ -37,18 +37,16 @@ svg { fill: currentColor; }
 }
 
 html[data-theme="dark"] {
-  /* DARK — navy variations with muted earthy text */
-  --bg: #22333B;         /* page background */
-  --text: #e9e6dc;       /* off-white text */
-  --muted: #A5A58D;      /* muted earthy */
-  --surface: #2B3E47;    /* slightly lighter navy card */
-  --surface-2: #1B2A31;  /* NAVBAR darker than bg */
-  --nav-text: #e9e6dc;   /* nav/link text */
-  --border: #324951;     /* subtle border */
-
-  --brand: #84A59D;      /* soft teal accent */
+  /* DARK — navy variations with muted earthy tones */
+  --bg: #22333B;
+  --text: #e9e6dc;
+  --muted: #A5A58D;
+  --surface: #2B3E47;
+  --surface-2: #1B2A31;
+  --nav-text: #e9e6dc;
+  --border: #324951;
+  --brand: #84A59D;
   --on-brand: #0F1417;
-
   --shadow: 0 1px 3px rgba(0,0,0,.35);
   --shadow-hover: 0 3px 10px rgba(0,0,0,.35);
 }

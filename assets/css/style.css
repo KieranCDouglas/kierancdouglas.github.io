@@ -21,7 +21,7 @@ svg { fill: currentColor; }
   --text: #222222;
   --muted: #6f6f6f;
   --surface: #ffffff;   /* cards/content */
-  --surface-2: #f5f6f8; /* sidebar/track */
+  --surface-2: #BAC49D; /* sidebar/track */
   --border: #e6e6e6;
 
   /* Accent for buttons/toggle in LIGHT */

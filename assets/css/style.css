@@ -17,15 +17,15 @@ svg { fill: currentColor; }
   --max-width: 960px;
 
   /* LIGHT — off-white, muted earth, navy nav */
-  --bg: #EAE0D5;           /* page background (light off-white) */
+  --bg: #e9e6dc;         /* page background */
   --text: #212525;
-  --muted: #A39171;        /* earthy muted for metadata */
-  --surface: #DCC9B6;      /* off-white/earthy content bubbles */
-  --surface-2: #22333B;    /* NAVBAR (dark navy, darker than bg) */
-  --nav-text: #EAE0D5;     /* nav link color on dark navy */
-  --border: #D5C6B6;       /* soft neutral border */
+  --muted: #bfafa6;      /* earthy muted for metadata */
+  --surface: #DCC9B6;    /* off-white/earthy content bubbles */
+  --surface-2: #22333B;  /* NAVBAR (dark navy, darker than bg) */
+  --nav-text: #e9e6dc;   /* nav/link text on dark bar */
+  --border: #D5C6B6;     /* soft neutral border */
 
-  /* Accent / brand (muted steel navy) */
+  /* Accent / brand (muted steel navy / teal) */
   --brand: #598392;
   --on-brand: #FFFFFF;
 
@@ -38,15 +38,15 @@ svg { fill: currentColor; }
 
 html[data-theme="dark"] {
   /* DARK — navy variations with muted earthy text */
-  --bg: #22333B;           /* page background (dark navy) */
-  --text: #EAE0D5;         /* off-white text for contrast */
-  --muted: #A5A58D;        /* muted earthy for metadata */
-  --surface: #2B3E47;      /* slightly lighter navy card */
-  --surface-2: #1B2A31;    /* NAVBAR darker than bg */
-  --nav-text: #EAE0D5;     /* nav link color */
-  --border: #324951;       /* subtle border in dark */
+  --bg: #22333B;         /* page background */
+  --text: #e9e6dc;       /* off-white text */
+  --muted: #A5A58D;      /* muted earthy */
+  --surface: #2B3E47;    /* slightly lighter navy card */
+  --surface-2: #1B2A31;  /* NAVBAR darker than bg */
+  --nav-text: #e9e6dc;   /* nav/link text */
+  --border: #324951;     /* subtle border */
 
-  --brand: #84A59D;        /* soft teal accent */
+  --brand: #84A59D;      /* soft teal accent */
   --on-brand: #0F1417;
 
   --shadow: 0 1px 3px rgba(0,0,0,.35);
@@ -69,7 +69,7 @@ body {
   line-height: 1.6;
   color: var(--text);
   background: var(--bg);
-  padding-left: 220px; /* for sidebar */
+  padding-left: 220px; /* space for sidebar */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -111,19 +111,20 @@ button:focus-visible {
 /* ===================== */
 .navbar {
   position: fixed;
-  inset: 0 auto 0 0;
+  inset: 0 auto 0 0;     /* left sidebar */
   width: 220px;
   height: 100vh;
   display: flex;
   flex-direction: column;
   gap: 12px;
   padding: 16px;
-  background: var(--surface-2);     /* clear darker bar */
+  background: var(--surface-2);     /* darker than page bg */
   border-right: 1px solid var(--border);
   box-shadow: none;
   z-index: 1000;
 }
 
+/* optional brand link */
 .brand-link {
   font-family: "Asap Condensed", "Montserrat", sans-serif;
   font-weight: 400;
@@ -147,7 +148,7 @@ button:focus-visible {
 .navbar a {
   display: block;
   text-decoration: none;
-  color: var(--nav-text);          /* light text on dark bar */
+  color: var(--nav-text);
   font-family: "Asap Condensed", "Montserrat", sans-serif;
   font-weight: 400;
   padding: 10px 12px;
@@ -178,7 +179,7 @@ button:focus-visible {
 }
 
 /* ===================== */
-/* SLIDING THEME TOGGLE  */
+/* THEME TOGGLE          */
 /* ===================== */
 .theme-toggle {
   margin-top: auto;
@@ -201,6 +202,7 @@ button:focus-visible {
   border-radius: 999px;
 }
 
+/* Track */
 .tgl-track {
   position: relative;
   display: inline-block;
@@ -209,10 +211,10 @@ button:focus-visible {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 999px;
-  box-shadow: var(--shadow);
   transition: background .2s ease, border-color .2s ease;
 }
 
+/* Thumb (slides left/right) */
 .tgl-thumb {
   position: absolute;
   top: 50%;
@@ -222,11 +224,16 @@ button:focus-visible {
   border-radius: 50%;
   background: var(--brand);
   color: var(--on-brand);
-  box-shadow: var(--shadow);
-  transform: translate(0, -50%);
+  transform: translate(0, -50%);                 /* left by default (light) */
   transition: transform .25s ease, background .25s ease;
 }
 
+html[data-theme="dark"] .tgl-thumb {
+  transform: translate(32px, -50%);              /* slide right in dark */
+  background: var(--brand);
+}
+
+/* Track icons */
 .tgl-icon {
   position: absolute;
   top: 50%;
@@ -267,7 +274,7 @@ html[data-theme="dark"] .btn--ghost:hover { background: rgba(255,255,255,.08); }
   grid-template-columns: 1.2fr .8fr;
   gap: 28px;
   padding: 24px;
-  background: var(--surface);          /* off-white bubble */
+  background: var(--surface);      /* off-white bubble */
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: none;
@@ -285,7 +292,6 @@ html[data-theme="dark"] .btn--ghost:hover { background: rgba(255,255,255,.08); }
   color: var(--muted);
   margin: 0 0 12px;
 }
-html[data-theme="dark"] .intro__blurb { color: var(--muted); }
 
 .intro__contacts {
   list-style: none;
@@ -317,7 +323,9 @@ html[data-theme="dark"] .intro__blurb { color: var(--muted); }
   display: block;
 }
 
-/* --- Social icon buttons --- */
+/* ===================== */
+/* SOCIAL ICONS          */
+/* ===================== */
 .social-icons {
   display: flex;
   gap: 12px;
@@ -335,7 +343,6 @@ html[data-theme="dark"] .intro__blurb { color: var(--muted); }
   background: var(--surface);
   border: 1px solid var(--border);
   color: var(--text);
-  box-shadow: none;
   transition: transform .15s ease, background .2s ease, color .2s ease, border-color .2s ease;
 }
 .social-icons a:hover {
@@ -344,11 +351,6 @@ html[data-theme="dark"] .intro__blurb { color: var(--muted); }
   border-color: var(--brand);
   color: var(--on-brand);
 }
-/* Brand hovers */
-.social-icons a[aria-label="LinkedIn"]:hover { background: #0A66C2; border-color: #0A66C2; }
-.social-icons a[aria-label="GitHub"]:hover   { background: #24292e; border-color: #24292e; }
-.social-icons a[aria-label="Substack"]:hover { background: #ff6719; border-color: #ff6719; }
-html[data-theme="dark"] .social-icons a { background: var(--surface); border-color: var(--border); color: var(--text); }
 
 /* ===================== */
 /* SECTIONS / CARDS      */
@@ -366,8 +368,8 @@ html[data-theme="dark"] .social-icons a { background: var(--surface); border-col
   list-style: none; padding: 0; margin: 0 0 40px;
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
 }
-.card {
-  background: var(--surface);
+.card  {
+  background: var(--surface);     /* off-white bubbles */
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
@@ -380,7 +382,6 @@ html[data-theme="dark"] .social-icons a { background: var(--surface); border-col
 .card__meta { margin: 0 0 8px; color: var(--muted); font-family: "Roboto Mono", monospace; }
 .card__summary { margin: 0; color: color-mix(in srgb, var(--text) 85%, transparent); font-family: "Montserrat", sans-serif; }
 html[data-theme="dark"] .card__summary { color: var(--text); }
-html[data-theme="dark"] .card__meta { color: color-mix(in srgb, var(--muted) 85%, transparent); }
 
 /* ===================== */
 /* PROJECT LIST (legacy) */

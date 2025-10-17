@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ page.title }} | {{ site.title }}</title>
+    {%- seo -%}
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  </head>
+  <body class="cv-full">
+    {% include navigation.html %}
+
+    <main class="cv-main">
+      {{ content }}
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}</p>
+      </div>
+    </footer>
+
+    <!-- include your theme script here exactly as in default.html -->
+    <script>/* same theme script as default layout */</script>
+  </body>
+</html>

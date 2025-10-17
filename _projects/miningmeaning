@@ -1,11 +1,11 @@
 ---
 title: "Mining Meaning: Conducting AI-Assisted Reviews of Economic
 Literature"
-year: 2024
+year: 2025
 tags: [nlp, llm, methods]
 thumbnail: /assets/images/projects/miningmeaning.jpg
-summary: "Exploiting machine learning natural language processing techniques to aid in
-large scale meta-analysis, literature review, and data collection, specifically as it related
+summary: "This paper exploits machine learning natural language processing techniques to aid in
+large scale meta-analysis, literature review, and data collection, specifically as it relates
 to exploring the validity and interchangeability of rainfall metrics used in instrumental
 variables regression."
 layout: project

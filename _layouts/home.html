@@ -54,29 +54,6 @@
 
     {% assign project_count = site.projects | size %}
     {% if page.show_featured != false and project_count > 0 %}
-    <section class="container">
-      <h2 class="section-title">Featured Work</h2>
-      <ul class="cards">
-        {% assign items = site.projects | sort:"year" | reverse | slice: 0, 6 %}
-        {% for p in items %}
-          <li class="card">
-            <a href="{{ p.url | relative_url }}" class="card__link">
-              {% if p.thumbnail %}
-                <img src="{{ p.thumbnail | relative_url }}" alt="" class="card__thumb">
-              {% endif %}
-              <div class="card__body">
-                <h3 class="card__title">{{ p.title }}</h3>
-                <p class="card__meta">
-                  {% if p.year %}{{ p.year }}{% endif %}
-                  {% if p.tags %} • {{ p.tags | join: ', ' }}{% endif %}
-                </p>
-                {% if p.summary %}<p class="card__summary">{{ p.summary }}</p>{% endif %}
-              </div>
-            </a>
-          </li>
-        {% endfor %}
-      </ul>
-    </section>
     {% endif %}
 
     <footer class="site-footer">

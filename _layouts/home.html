@@ -6,10 +6,15 @@
     <title>{{ page.title }} | {{ site.title }}</title>
     {%- seo -%}
 
-    <!-- Inter font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Asap Condensed (400), Montserrat (400), Roboto Mono (400) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Asap+Condensed:wght@400&family=Montserrat:wght@400&family=Roboto+Mono:wght@400&display=swap"
+      rel="stylesheet"
+    >
 
-    <!-- Site styles -->
+    <!-- Site styles (keep AFTER fonts) -->
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
     <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
   </head>

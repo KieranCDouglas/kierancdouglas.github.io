@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ page.title }} | {{ site.title }}</title>
     {%- seo -%}
+    <!-- Chathura font -->
+    <link href="https://fonts.googleapis.com/css2?family=Chathura:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   </head>
   <body>
@@ -24,7 +26,6 @@
             <img src="{{ page.thumbnail | relative_url }}" alt="" class="project-thumb" style="max-width:100%;border-radius:12px;margin:8px 0 16px;">
           {% endif %}
         </header>
-
         {{ content }}
       </article>
     </main>
@@ -35,41 +36,28 @@
       </div>
     </footer>
 
-    <!-- Sliding dark/light toggle: state-only JS, visuals via CSS -->
+    <!-- Same minimal theme script -->
     <script>
     (function () {
-      const KEY = 'theme';
-      const root = document.documentElement;
+      const KEY='theme', root=document.documentElement;
+      const saved=localStorage.getItem(KEY);
+      const prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const initial=saved || (prefersDark ? 'dark' : 'light');
 
-      // Initialize theme (prefer saved, else system)
-      const saved = localStorage.getItem(KEY);
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const initial = saved || (prefersDark ? 'dark' : 'light');
-      root.setAttribute('data-theme', initial);
-
-      function applyState(btn) {
-        if (!btn) return;
-        const isDark = root.getAttribute('data-theme') === 'dark';
-        btn.setAttribute('aria-checked', String(isDark));
+      function setTheme(t){
+        root.setAttribute('data-theme', t);
+        localStorage.setItem(KEY, t);
+        const btn=document.getElementById('theme-toggle');
+        if (btn) btn.setAttribute('aria-checked', t==='dark' ? 'true' : 'false');
       }
+      setTheme(initial);
 
-      function wire() {
-        const btn = document.getElementById('theme-toggle');
-        if (!btn) return;
-        applyState(btn);
-        btn.addEventListener('click', () => {
-          const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-          root.setAttribute('data-theme', next);
-          localStorage.setItem(KEY, next);
-          applyState(btn);
-        });
-      }
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', wire);
-      } else {
-        wire();
-      }
+      document.addEventListener('click', function(e){
+        const btn=e.target.closest('#theme-toggle');
+        if(!btn) return;
+        const next=root.getAttribute('data-theme')==='dark' ? 'light' : 'dark';
+        setTheme(next);
+      });
     })();
     </script>
   </body>

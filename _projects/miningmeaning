@@ -1,9 +1,13 @@
 ---
-title: "Mining Meaning: Text-as-Data in Ag Policy"
+title: "Mining Meaning: Conducting AI-Assisted Reviews of Economic
+Literature"
 year: 2024
-tags: [nlp, policy]
+tags: [nlp, llm, methods]
 thumbnail: /assets/images/projects/miningmeaning.jpg
-summary: "Pilot study using topic modeling on comment letters."
+summary: "Exploiting machine learning natural language processing techniques to aid in
+large scale meta-analysis, literature review, and data collection, specifically as it related
+to exploring the validity and interchangeability of rainfall metrics used in instrumental
+variables regression."
 layout: project
 permalink: /my-work/miningmeaning/
 ---

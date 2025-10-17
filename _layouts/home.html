@@ -9,7 +9,6 @@
     <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
   </head>
   <body class="home">
-    {%- comment -%} Show the small site header only if you want it {%- endcomment -%}
     {% if page.show_header != false %}
     <header class="site-header">
       <div class="container">
@@ -21,7 +20,7 @@
 
     {% include navigation.html %}
 
-    <!-- Intro card (name, about, headshot, contact) -->
+    <!-- Intro card (name, about, headshot, optional contacts) -->
     <section class="container">
       <article class="intro">
         <div class="intro__text">
@@ -30,20 +29,23 @@
             {{ page.about_blurb | default: "Economics graduate student at UC Davis — research, code, and notes." }}
           </p>
 
+          {% if page.show_contacts != false %}
           <ul class="intro__contacts">
-            <li><strong>Email:</strong> <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></li>
+            {% if site.author.email %}
+              <li><strong>Email:</strong> <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></li>
+            {% endif %}
             {% if page.location %}<li><strong>Location:</strong> {{ page.location }}</li>{% endif %}
             {% if page.links %}
-              {% if page.links.github %}<li><strong>GitHub:</strong> <a href="{{ page.links.github }}" target="_blank" rel="noopener">{{ page.links.github | replace: 'https://', '' }}</a></li>{% endif %}
+              {% if page.links.github %}<li><strong>GitHub:</strong> <a href="{{ page.links.github }}" target="_blank" rel="noopener">{{ page.links.github | replace: 'https://','' }}</a></li>{% endif %}
               {% if page.links.scholar %}<li><strong>Scholar:</strong> <a href="{{ page.links.scholar }}" target="_blank" rel="noopener">Google Scholar</a></li>{% endif %}
-              {% if page.links.linkedin %}<li><strong>LinkedIn:</strong> <a href="{{ page.links.linkedin }}" target="_blank" rel="noopener">{{ page.links.linkedin | replace: 'https://', '' }}</a></li>{% endif %}
+              {% if page.links.linkedin %}<li><strong>LinkedIn:</strong> <a href="{{ page.links.linkedin }}" target="_blank" rel="noopener">{{ page.links.linkedin | replace: 'https://','' }}</a></li>{% endif %}
             {% endif %}
           </ul>
+          {% endif %}
 
           <div class="intro__actions">
             <a class="btn btn--primary" href="{{ '/my-work/' | relative_url }}">My Work</a>
             <a class="btn btn--ghost" href="{{ '/cv/' | relative_url }}">CV</a>
-            <a class="btn btn--ghost" href="{{ '/contact/' | relative_url }}">Contact</a>
           </div>
         </div>
 
@@ -55,7 +57,8 @@
       </article>
     </section>
 
-    <!-- Featured projects (optional—remove if you don’t want it on home) -->
+    {% assign project_count = site.projects | size %}
+    {% if page.show_featured != false and project_count > 0 %}
     <section class="container">
       <h2 class="section-title">Featured Work</h2>
       <ul class="cards">
@@ -79,6 +82,7 @@
         {% endfor %}
       </ul>
     </section>
+    {% endif %}
 
     <footer class="site-footer">
       <div class="container">

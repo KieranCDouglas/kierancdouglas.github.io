@@ -125,20 +125,45 @@ html[data-theme="dark"] .navbar a:hover { background: rgba(255,255,255,.06); box
 
 /* dark-mode toggle button inside the sidebar */
 .theme-toggle {
-  margin-top: auto;      /* push to bottom */
+  margin-top: auto;              /* push to bottom of sidebar */
   align-self: stretch;
-  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;                   /* icon-only button */
+  height: 44px;
+  padding: 0;                    /* no text padding */
+  cursor: pointer;
+
   border: 1px solid var(--border);
+  border-radius: 12px;           /* change to 50% if you want a perfect circle */
   background: var(--surface);
   color: var(--text);
-  border-radius: 12px;
-  padding: 10px 12px;
-  font-size: 16px;
-  line-height: 1;
-  cursor: pointer;
   box-shadow: var(--shadow);
+  transition: filter .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
 }
-.theme-toggle:hover { filter: brightness(0.98); }
+
+.theme-toggle:hover {
+  filter: brightness(0.98);
+}
+
+/* optional: subtle hover background difference for dark mode */
+html[data-theme="dark"] .theme-toggle:hover {
+  background: var(--surface-2);
+}
+/* SVG in the toggle should look crisp and animate a touch */
+.theme-toggle svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  transition: transform .2s ease, color .3s ease;
+}
+
+.theme-toggle:hover svg {
+  transform: rotate(20deg);
+}
+
 
 /* ===================== */
 /* BUTTONS               */

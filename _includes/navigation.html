@@ -1,5 +1,5 @@
 <nav class="navbar">
-  <!-- Optional site title or logo -->
+  <!-- Optional site title (commented out) -->
   <!-- <a class="brand-link" href="{{ '/' | relative_url }}">{{ site.title }}</a> -->
 
   <ul>
@@ -21,21 +21,31 @@
           aria-checked="false"
           aria-label="Toggle dark mode">
     <span class="tgl-track">
-      <!-- Sun icon (filled, crisp) -->
-<span class="tgl-icon tgl-icon--sun" aria-hidden="true">
-  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
-    <!-- Heroicons Mini "Sun" (solid) -->
-    <path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Zm0 4a1 1 0 0 1-1-1v-1a1 1 0 1 1 2 0v1a1 1 0 0 1-1 1Zm0-20a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1Zm9 11a1 1 0 1 1 0-2h1a1 1 0 1 1 0 2h-1ZM3 12a1 1 0 1 1 0-2H2a1 1 0 1 1 0 2h1Zm15.364 6.364a1 1 0 1 1-1.414-1.414l.707-.707a1 1 0 1 1 1.414 1.414l-.707.707Zm-12.728-12.728a1 1 0 0 1 1.414 0l.707.707A1 1 0 0 1 6.343 7.757l-.707-.707a1 1 0 0 1 0-1.414Zm12.728 0a1 1 0 0 1 0 1.414l-.707.707a1 1 0 0 1-1.414-1.414l.707-.707a1 1 0 0 1 1.414 0ZM6.343 18.364a1 1 0 1 1-1.414-1.414l.707-.707a1 1 0 1 1 1.414 1.414l-.707.707Z"/>
-  </svg>
-</span>
+      <!-- Sun Icon -->
+      <span class="tgl-icon tgl-icon--sun" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round"
+             stroke-linejoin="round" style="display:block;">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </span>
 
-<!-- Moon icon (filled crescent, no cropping) -->
-<span class="tgl-icon tgl-icon--moon" aria-hidden="true">
-  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
-    <!-- Heroicons Mini "Moon" (solid) -->
-    <path d="M21.752 15.002A9.718 9.718 0 0 1 12 22.75a9.75 9.75 0 0 1-9.75-9.75 9.718 9.718 0 0 1 7.748-9.552 0.75 0.75 0 0 1 .84 1.042A8.25 8.25 0 1 0 20.71 14.162a0.75 0.75 0 0 1 1.042.84Z"/>
-  </svg>
-</span>
+      <!-- Moon Icon -->
+      <span class="tgl-icon tgl-icon--moon" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round"
+             stroke-linejoin="round" style="display:block;">
+          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+        </svg>
+      </span>
 
       <!-- The sliding thumb -->
       <span class="tgl-thumb" aria-hidden="true"></span>

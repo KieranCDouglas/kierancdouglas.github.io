@@ -3,7 +3,7 @@ title: "Exploring Complications With Instrumental Variable Selection and Their S
 year: 2024
 tags: [rainfall, iv, methods]
 thumbnail: /assets/images/projects/miningmeaning.jpg
-summary: "Identifies common pitfalls with instrumental variables regression and makes a case for greater scrutiny in IV selection criteria."
+summary: "I identify common pitfalls with instrumental variables regression and makes a case for greater scrutiny in IV selection criteria."
 layout: project
 permalink: /my-work/iv/
 ---

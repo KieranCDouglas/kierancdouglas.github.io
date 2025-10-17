@@ -141,26 +141,35 @@ button:focus-visible {
   transition: background .2s, color .2s, transform .05s, box-shadow .2s;
 }
 
-/* subtle hover tint using brand (with rgba fallback if color-mix unsupported) */
-.navbar a:hover {
-  background: color-mix(in srgb, var(--brand) 12%, transparent);
-  box-shadow: 0 2px 6px rgba(0,0,0,.06);
-}
-@supports not (background: color-mix(in srgb, red 10%, white)) {
-  .navbar a:hover { background: rgba(22,66,91,0.12); }
-}
-html[data-theme="dark"] .navbar a:hover {
-  background: color-mix(in srgb, var(--brand) 10%, transparent);
-  box-shadow: none;
-}
-@supports not (background: color-mix(in srgb, red 10%, white)) {
-  html[data-theme="dark"] .navbar a:hover { background: rgba(228,253,225,0.10); }
-}
-
 /* Active state = brand chip with readable text */
 .navbar a.active {
   background: var(--brand);
   color: var(--on-brand);
+}
+
+/* Only apply hover to NON-active links */
+.navbar a:hover:not(.active) {
+  background: color-mix(in srgb, var(--brand) 12%, transparent);
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+}
+@supports not (background: color-mix(in srgb, red 10%, white)) {
+  .navbar a:hover:not(.active) { background: rgba(22,66,91,0.12); }
+}
+
+/* Dark-mode hover (non-active only) */
+html[data-theme="dark"] .navbar a:hover:not(.active) {
+  background: color-mix(in srgb, var(--brand) 10%, transparent);
+  box-shadow: none;
+}
+@supports not (background: color-mix(in srgb, red 10%, white)) {
+  html[data-theme="dark"] .navbar a:hover:not(.active) { background: rgba(228,253,225,0.10); }
+}
+
+/* Optional: ensure no change when hovering the active item */
+.navbar a.active:hover {
+  background: var(--brand);
+  color: var(--on-brand);
+  box-shadow: none;
 }
 
 /* ===================== */

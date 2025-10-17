@@ -32,7 +32,7 @@ In my free time, I enjoy cycling (mountain and fixed), making music with hardwar
     </div>
 
     <div class="about-me__image">
-      <img src="{{ 'assets/regshot.HEIC' | relative_url }}" alt="A picture of me in Santa Barbara">
+      <img src="{{ 'assets/stuff/waterfall.jpeg' | relative_url }}" alt="A picture of me in Oregon">
     </div>
   </div>
 </section>

@@ -11,6 +11,6 @@ show_featured: true      # set to false to hide the Featured Work section
 links:
   github: https://github.com/KieranCDouglas
   substack: https://vasculism.substack.com/
-  linkedin: https: https://www.linkedin.com/in/kieran-douglas-74935515a/
+  linkedin: https://www.linkedin.com/in/kieran-douglas-74935515a/
 ---
 

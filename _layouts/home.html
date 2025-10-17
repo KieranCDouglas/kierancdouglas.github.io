@@ -31,17 +31,39 @@
           </p>
 
           {% if page.show_contacts != false %}
-          <ul class="intro__contacts">
-            {% if site.author.email %}
-              <li><strong>Email:</strong> <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></li>
-            {% endif %}
-            {% if page.location %}<li><strong>Location:</strong> {{ page.location }}</li>{% endif %}
-            {% if page.links %}
-              {% if page.links.github %}<li><strong>GitHub:</strong> <a href="{{ page.links.github }}" target="_blank" rel="noopener">{{ page.links.github | replace: 'https://','' }}</a></li>{% endif %}
-              {% if page.links.scholar %}<li><strong>Scholar:</strong> <a href="{{ page.links.scholar }}" target="_blank" rel="noopener">Google Scholar</a></li>{% endif %}
-              {% if page.links.linkedin %}<li><strong>LinkedIn:</strong> <a href="{{ page.links.linkedin }}" target="_blank" rel="noopener">{{ page.links.linkedin | replace: 'https://','' }}</a></li>{% endif %}
-            {% endif %}
-          </ul>
+         <ul class="intro__contacts icons">
+  {% if site.author.email %}
+    <li>
+      <a href="mailto:{{ site.author.email }}" aria-label="Email">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+    </li>
+  {% endif %}
+
+  {% if page.links.github %}
+    <li>
+      <a href="{{ page.links.github }}" target="_blank" rel="noopener" aria-label="GitHub">
+        <i class="fa-brands fa-github"></i>
+      </a>
+    </li>
+  {% endif %}
+
+  {% if page.links.substack %}
+    <li>
+      <a href="{{ page.links.substack }}" target="_blank" rel="noopener" aria-label="Substack">
+        <i class="fa-solid fa-pen-nib"></i>
+      </a>
+    </li>
+  {% endif %}
+
+  {% if page.links.linkedin %}
+    <li>
+      <a href="{{ page.links.linkedin }}" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+    </li>
+  {% endif %}
+</ul>
           {% endif %}
         </div>
 

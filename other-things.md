@@ -4,5 +4,5 @@ title: Other Things
 permalink: /other-things/
 ---
 
-# Other Things
+# Other Stuff
 <p>Notes, book lists, thoughts, etc.</p>

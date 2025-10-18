@@ -29,14 +29,11 @@ layout: default
         {% if authors_text %}
           <div class="project-authors">{{ authors_text }}</div>
         {% endif %}
-
-        {% if p.summary %}
-          <div class="summary summary--teaser">{{ p.summary }}</div>
-        {% endif %}
+        {# no teaser summary here — shown only when expanded #}
       </div>
     </button>
 
-    <!-- Hidden panel; reveals only more context -->
+    <!-- Expanded panel: summary + optional external link -->
     <div class="project-details" hidden>
       <div class="project-details__inner">
         {% if p.summary %}

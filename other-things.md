@@ -31,7 +31,7 @@ permalink: /other-things/
         {% if o.external_url %}
           <p class="other-actions">
             <a class="btn btn--primary" href="{{ o.external_url }}" target="_blank" rel="noopener">
-              Open external link
+              Open 
             </a>
           </p>
         {% endif %}

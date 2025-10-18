@@ -4,8 +4,9 @@ year: 2025
 tags: [biostatistics, cross-sectional, health]
 thumbnail: assets/stuff/IMG_1213.jpeg
 summary: "Another paper about treatments during pregnancy"
+authors: Kieran Douglas
+external_url: https://arxiv.org/abs/1234.56789   # optional
 layout: project
 permalink: /my-work/antipara/
 ---
-
 This paper explores the relationships between the use of antiparasitic drug use during pregnancy on birth outcomes using data from India.

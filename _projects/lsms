@@ -1,14 +1,13 @@
 ---
 title: "Variable selection in economic applications of remotely sensed weather data: Evidence
 from the LSMS"
-authors: "Agme, C.D., K. Douglas, J.D. Michler, A. Josephson." 
 year: 2024
 tags: [rainfall, iv, methods]
 thumbnail: assets/stuff/IMG_5274.jpeg
-summary: "Problems with rainfall metric selection for IV regression"
+authors: "Agme, C.D., K. Douglas, J.D. Michler, A. Josephson." 
+external_url: https://aidelab.arizona.edu/variable-selection-economic-applications-remotely-sensed-weather-data
 layout: project
 permalink: /my-work/lsms/
 ---
-
 We explore common rainfall metrics used in instrumental variables regression and demonstrates the extent of their ad
 hoc selection in predicting a range of outcomes.

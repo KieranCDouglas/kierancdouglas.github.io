@@ -7,6 +7,6 @@ authors: Anna Josephson, Jeffrey D. Michler, Talip Kilic, Siobhan Murray
 external_url: https://www.sciencedirect.com/science/article/abs/pii/S030438782500104X
 layout: project
 permalink: /my-work/mismeasure/
+summary: "This paper quantifies the significance and magnitude of measurement error in Earth Observation (EO) data in the context of smallholder agricultural productivity. Contributing to the literature critically assessing weather variables and data quality in economics, we find that results across EO sources are not robust to dataset choice and that outcomes are not simple transformations of one another. These findings highlight the need for researchers using EO data to more carefully ensure the robustness of their variable selection and data sources."
 ---
 
-This paper quantifies the significance and magnitude of the effect of measurement error in Earth Observation data in the context of smallholder agricultural productivity.

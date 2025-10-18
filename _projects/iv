@@ -5,5 +5,5 @@ tags: [rainfall, iv, methods]
 thumbnail: assets/stuff/IMG_3598.jpeg
 authors: Kieran Douglas
 permalink: /my-work/iv/
+summary: "I identify common pitfalls in instrumental variables regression and make a case for greater scrutiny in IV selection criteria. This paper includes a thorough literature review and proposes a new technique for synthesizing data from large bodies of literature using LLMs. It was written as part of the UROC Program’s Summer Research Internship, where I was advised by Dr. Anna Josephson."
 ---
-I identify common pitfalls with instrumental variables regression and makes a case for greater scrutiny in IV selection criteria.

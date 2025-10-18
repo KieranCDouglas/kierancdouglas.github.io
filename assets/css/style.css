@@ -17,7 +17,7 @@ svg { fill: currentColor; }
   --max-width: 960px;
 
   /* LIGHT — refreshed to harmonize with dark mode */
-  --bg: #c5d1d2;         /* page background */
+  --bg: #9aafb1;         /* page background */
   --text: #212525;
   --muted: #8E9A9C;      /* neutral cool gray for metadata */
   --surface: #CAD2C5;    /* soft cool gray-green content bubbles */

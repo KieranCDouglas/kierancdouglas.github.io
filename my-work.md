@@ -20,10 +20,6 @@ layout: default
         <strong class="project-title">{{ p.title }}</strong>
         {% if p.year %}<span class="muted"> · {{ p.year }}</span>{% endif %}
 
-        {%- comment -%}
-          Authors can be a string or an array in front matter:
-          authors: "A. Author, B. Author"  OR  authors: [A. Author, B. Author]
-        {%- endcomment -%}
         {% assign authors_text = p.authors %}
         {% if p.authors and p.authors.size %}
           {% if p.authors.first %}
@@ -40,15 +36,11 @@ layout: default
       </div>
     </button>
 
-    <!-- Hidden panel; reveals more context -->
+    <!-- Hidden panel; reveals only more context -->
     <div class="project-details" hidden>
       <div class="project-details__inner">
         {% if p.summary %}
           <p class="summary summary--full">{{ p.summary }}</p>
-        {% endif %}
-
-        {% if authors_text %}
-          <p class="project-authors project-authors--full">{{ authors_text }}</p>
         {% endif %}
 
         {% if p.external_url %}

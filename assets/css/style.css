@@ -543,3 +543,88 @@ html[data-theme="dark"] .project-meta .summary { color: var(--text); }
 .project a:hover { filter: brightness(0.95); }
 .project img, .project-thumb { border-radius: 12px; }
 .project code { background: color-mix(in srgb, var(--text) 8%, transparent); padding: .1em .3em; border-radius: 4px; }
+
+/* ===== Expandable project cards (My Work) ===== */
+
+.project-list--expandable .project-card {
+  transition: box-shadow .18s ease, transform .12s ease, border-color .18s ease;
+}
+
+.project-list--expandable .project-card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Use a button as the main row */
+.project-list--expandable .project-toggle {
+  appearance: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+
+  display: grid;
+  grid-template-columns: 260px 1fr;   /* bigger thumbnail */
+  gap: 16px;
+  padding: 16px;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .project-list--expandable .project-toggle {
+    grid-template-columns: 1fr;
+    padding: 12px;
+  }
+}
+
+/* Bigger thumbnail */
+.project-list--expandable .project-thumb {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Title/Meta */
+.project-list--expandable .project-title {
+  display: block;
+  font-family: "Asap Condensed", sans-serif;
+  font-size: 1.15rem;
+  margin-bottom: 2px;
+}
+
+/* Teaser summary (visible when collapsed) */
+.project-list--expandable .summary--teaser {
+  color: color-mix(in srgb, var(--text) 80%, transparent);
+  margin-top: 6px;
+}
+
+/* Details panel (hidden by default) */
+.project-list--expandable .project-details {
+  border-top: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface) 92%, var(--bg));
+}
+
+.project-list--expandable .project-details__inner {
+  padding: 16px;
+}
+
+.project-list--expandable .summary--full {
+  margin: 0 0 8px;
+  color: var(--text);
+}
+
+.project-list--expandable .project-body > *:first-child { margin-top: 0; }
+.project-list--expandable .project-body > *:last-child  { margin-bottom: 0; }
+
+.project-list--expandable .project-actions {
+  margin: 14px 0 4px;
+}
+
+/* Open state accent */
+.project-list--expandable .project-card.is-open {
+  border-color: color-mix(in srgb, var(--brand) 35%, var(--border));
+  box-shadow: var(--shadow-hover);
+}

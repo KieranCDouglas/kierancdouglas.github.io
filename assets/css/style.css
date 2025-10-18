@@ -718,3 +718,33 @@ html[data-theme="dark"] .project-list--expandable .summary--teaser,
 html[data-theme="dark"] .project-list--expandable .summary--full {
   color: color-mix(in srgb, var(--text) 90%, transparent);
 }
+/* iOS title color normalize for project cards */
+.project-list--expandable .project-title,
+.project-list--expandable .project-title a {
+  color: var(--text) !important;
+  text-decoration: none;
+}
+.project-list--expandable .project-title a:visited {
+  color: var(--text) !important;
+}
+
+/* Ensure the toggle (a <button>) inherits text color on iOS */
+.project-list--expandable .project-toggle {
+  -webkit-appearance: none; /* iOS Safari */
+  appearance: none;
+  color: inherit;
+}
+
+/* Belt & suspenders: make buttons inherit color globally */
+button {
+  color: inherit;
+}
+
+/* If any card used links for the header/title elsewhere */
+.card__title a {
+  color: var(--text) !important;
+  text-decoration: none;
+}
+.card__title a:visited {
+  color: var(--text) !important;
+}

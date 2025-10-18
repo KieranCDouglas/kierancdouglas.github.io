@@ -19,7 +19,7 @@ svg { fill: currentColor; }
   /* LIGHT — refreshed to harmonize with dark mode */
   --bg: #9aafb1;         /* page background */
   --text: #212525;
-  --muted: #8E9A9C;      /* neutral cool gray for metadata */
+  --muted: #9aafb1;      /* neutral cool gray for metadata */
   --surface: #CAD2C5;    /* soft cool gray-green content bubbles */
   --surface-2: #22333B;  /* NAVBAR (dark navy, same as dark mode) */
   --nav-text: #F0EBD8;   /* nav/link text on dark bar */

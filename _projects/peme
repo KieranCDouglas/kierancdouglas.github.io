@@ -7,6 +7,6 @@ authors: Kieran Douglas
 external_url: https://chatgpt.com/g/g-68bb58d587c48191b9b87c36e10f8b0a-peme
 layout: project
 permalink: /my-work/peme/
+summary: "PEME is a custom GPT designed to help researchers develop efficient, high-quality prompts for their LLM queries. I conduct a comprehensive review of the literature and define a set of prompt engineering criteria on which the model is trained. Through a series of self-checks and external reference comparisons, PEME generates more effective and efficient versions of natural language prompts. This is particularly useful in contexts where the same prompt is executed repeatedly during automated data-feeding processes, such as in the paper Mining Meaning. PEME is available to the public through OpenAI’s Custom GPT platform."
 ---
 
-PEME is a custom GPT designed to aid researchers in developing efficient and high quality prompts for their LLM queries.

@@ -29,7 +29,7 @@ layout: default
         {% if authors_text %}
           <div class="project-authors">{{ authors_text }}</div>
         {% endif %}
-        {# no teaser summary here — shown only when expanded #}
+{% comment %} no teaser summary here — shown only when expanded {% endcomment %}
       </div>
     </button>
 

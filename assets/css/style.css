@@ -708,3 +708,13 @@ html[data-theme="dark"] .project-authors { color: color-mix(in srgb, var(--text)
   border-color: color-mix(in srgb, var(--brand) 35%, var(--border));
   box-shadow: var(--shadow-hover);
 }
+/* ===== Fix: Project Titles in Dark Mode ===== */
+html[data-theme="dark"] .project-list--expandable .project-title {
+  color: var(--text);
+}
+
+html[data-theme="dark"] .project-list--expandable .project-authors,
+html[data-theme="dark"] .project-list--expandable .summary--teaser,
+html[data-theme="dark"] .project-list--expandable .summary--full {
+  color: color-mix(in srgb, var(--text) 90%, transparent);
+}

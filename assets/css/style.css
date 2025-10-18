@@ -17,7 +17,7 @@ svg { fill: currentColor; }
   --max-width: 960px;
 
   /* LIGHT — refreshed to harmonize with dark mode */
-  --bg: #9aafb1;         /* page background */
+  --bg: #afacb5;         /* page background */
   --text: #212525;
   --muted: #8E9A9C;      /* neutral cool gray for metadata */
   --surface: #CAD2C5;    /* soft cool gray-green content bubbles */
@@ -26,7 +26,7 @@ svg { fill: currentColor; }
   --border: #B7C2B9;     /* subtle green-gray border */
 
   /* Accent / brand (muted teal/green tone matching dark mode) */
-  --brand: #84A59D;
+  --brand: #9aafb1;
   --on-brand: #FFFFFF;
 
   --radius: 16px;
@@ -45,7 +45,7 @@ html[data-theme="dark"] {
   --surface-2: #1B2A31;
   --nav-text: #e9e6dc;
   --border: #324951;
-  --brand: #84A59D;
+  --brand: #9aafb1;
   --on-brand: #0F1417;
   --shadow: 0 1px 3px rgba(0,0,0,.35);
   --shadow-hover: 0 3px 10px rgba(0,0,0,.35);

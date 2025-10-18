@@ -33,6 +33,9 @@ collections:
   projects:
     output: true
     permalink: /my-work/:name/
+  others:
+    output: true
+    permalink: /other-things/:name/
 
 # -------------------------------------------------------------
 # Defaults

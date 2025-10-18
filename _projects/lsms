@@ -8,6 +8,5 @@ authors: "Agme, C.D., K. Douglas, J.D. Michler, A. Josephson."
 external_url: https://aidelab.arizona.edu/variable-selection-economic-applications-remotely-sensed-weather-data
 layout: project
 permalink: /my-work/lsms/
+summary: "We explore common rainfall metrics used in instrumental variables (IV) regression and demonstrate the extent of their ad hoc selection in predicting a range of outcomes. By testing the predictive power of the 14 most common rainfall metrics used in the economics literature on agricultural productivity, we find substantial heterogeneity in metric performance. Moreover, we find evidence of plausible exclusion restriction violations and weak instrument problems in the use of rainfall as an IV, underscoring the need for more systematic, transparent, and well-justified metric selection."
 ---
-We explore common rainfall metrics used in instrumental variables regression and demonstrates the extent of their ad
-hoc selection in predicting a range of outcomes.

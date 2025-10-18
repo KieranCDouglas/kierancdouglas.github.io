@@ -43,7 +43,7 @@ layout: default
         {% if p.external_url %}
           <p class="project-actions">
             <a class="btn btn--primary" href="{{ p.external_url }}" target="_blank" rel="noopener">
-              View external page
+              Open
             </a>
           </p>
         {% endif %}

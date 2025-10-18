@@ -493,3 +493,37 @@ html[data-theme="dark"] .project-meta .summary { color: var(--text); }
   .about-me__grid { grid-template-columns: 1fr; }
   .about-me__image img { margin: 0 auto; }
 }
+/* ===================== */
+/* CV: Responsive Behavior */
+/* ===================== */
+
+.cv-mobile { display: none; }
+
+/* Improve embedded height handling across mobile browsers */
+.pdf-viewer {
+  display: block;
+  width: 100%;
+  height: 100vh;       /* desktop */
+  min-height: 100vh;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: none;
+}
+
+/* Small screens: hide iframe, show native-open button */
+@media (max-width: 900px) {
+  .cv-wide   { display: none; }
+  .cv-mobile { display: block; }
+
+  /* Use dynamic viewport units so iOS toolbars don't chop height */
+  .pdf-viewer { height: 100svh; min-height: 100svh; }
+}
+
+/* Optional: a tiny note style under the button */
+.cv-mobile p {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.95rem;
+}

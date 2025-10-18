@@ -748,3 +748,94 @@ button {
 .card__title a:visited {
   color: var(--text) !important;
 }
+/* ===== Other Things: expandable grid ===== */
+
+.other-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+@media (max-width: 1000px) {
+  .other-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .other-grid { grid-template-columns: 1fr; }
+}
+
+.other-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: none;
+  transition: box-shadow .18s ease, transform .12s ease, border-color .18s ease;
+}
+.other-card:hover { transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+
+.other-toggle {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 12px;
+  padding: 14px;
+  cursor: pointer;
+  color: inherit;
+}
+
+.other-thumb {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.other-meta {
+  display: flex;
+  flex-direction: column;
+}
+.other-title {
+  font-family: "Asap Condensed", sans-serif;
+  font-size: 1.05rem;
+  margin-bottom: 2px;
+  color: var(--text);
+}
+html[data-theme="dark"] .other-title { color: var(--text); }
+
+.other-tags {
+  font-family: "Roboto Mono", monospace;
+  font-size: .9rem;
+  color: var(--muted);
+}
+
+/* Expanded panel */
+.other-details {
+  border-top: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface) 92%, var(--bg));
+}
+.other-details__inner { padding: 14px; }
+
+.other-actions { margin: 12px 0 2px; }
+
+.other-card.is-open {
+  border-color: color-mix(in srgb, var(--brand) 35%, var(--border));
+  box-shadow: var(--shadow-hover);
+}
+
+/* iOS color normalize for titles */
+.other-title,
+.other-title a {
+  color: var(--text) !important;
+  text-decoration: none;
+}
+.other-title a:visited { color: var(--text) !important; }

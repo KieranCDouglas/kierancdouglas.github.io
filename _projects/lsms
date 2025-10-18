@@ -4,7 +4,7 @@ from the LSMS"
 authors: "Agme, C.D., K. Douglas, J.D. Michler, A. Josephson." 
 year: 2024
 tags: [rainfall, iv, methods]
-thumbnail: /assets/images/projects/miningmeaning.jpg
+thumbnail: assets/stuff/IMG_5274.jpeg
 summary: "Problems with rainfall metric selection for IV regression"
 layout: project
 permalink: /my-work/lsms/

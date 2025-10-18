@@ -5,10 +5,10 @@ authors: "Agme, C.D., K. Douglas, J.D. Michler, A. Josephson."
 year: 2024
 tags: [rainfall, iv, methods]
 thumbnail: /assets/images/projects/miningmeaning.jpg
-summary: "We explore common rainfall metrics used in instrumental variables regression and demonstrates the extent of their ad
-hoc selection in predicting a range of outcomes."
+summary: "Problems with rainfall metric selection for IV regression"
 layout: project
 permalink: /my-work/lsms/
 ---
 
-Short teaser or body content here. You can add images, links, etc.
+We explore common rainfall metrics used in instrumental variables regression and demonstrates the extent of their ad
+hoc selection in predicting a range of outcomes.

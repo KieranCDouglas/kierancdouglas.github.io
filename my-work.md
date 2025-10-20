@@ -29,22 +29,29 @@ layout: default
         {% if authors_text %}
           <div class="project-authors">{{ authors_text }}</div>
         {% endif %}
-{% comment %} no teaser summary here — shown only when expanded {% endcomment %}
+        {% comment %} summary intentionally hidden in collapsed view {% endcomment %}
       </div>
     </button>
 
-    <!-- Expanded panel: summary + optional external link -->
+    <!-- Expanded panel: summary + optional PDF and/or external link -->
     <div class="project-details" hidden>
       <div class="project-details__inner">
         {% if p.summary %}
           <p class="summary summary--full">{{ p.summary }}</p>
         {% endif %}
 
-        {% if p.external_url %}
+        {% if p.pdf_url or p.external_url %}
           <p class="project-actions">
-            <a class="btn btn--primary" href="{{ p.external_url }}" target="_blank" rel="noopener">
-              Open
-            </a>
+            {% if p.pdf_url %}
+              <a class="btn btn--primary" href="{{ p.pdf_url | relative_url }}" target="_blank" rel="noopener">
+                Open PDF
+              </a>
+            {% endif %}
+            {% if p.external_url %}
+              <a class="btn btn--ghost" href="{{ p.external_url }}" target="_blank" rel="noopener" style="margin-left:.5rem">
+                Open
+              </a>
+            {% endif %}
           </p>
         {% endif %}
       </div>

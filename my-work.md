@@ -48,7 +48,7 @@ layout: default
               </a>
             {% endif %}
             {% if p.external_url %}
-              <a class="btn btn--ghost" href="{{ p.external_url }}" target="_blank" rel="noopener" style="margin-left:.5rem">
+              <a class="btn btn--primary" href="{{ p.external_url }}" target="_blank" rel="noopener" style="margin-left:.5rem">
                 Open
               </a>
             {% endif %}

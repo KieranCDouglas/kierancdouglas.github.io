@@ -265,65 +265,60 @@ html[data-theme="dark"] .tgl-thumb {
 html[data-theme="dark"] .btn--ghost:hover { background: rgba(255,255,255,.08); }
 
 /* ===================== */
-/* INTRO / ABOUT CARD    */
+/* INTRO / ABOUT CARD */
 /* ===================== */
 .intro {
-  display: grid;
-  grid-template-columns: 1fr 1fr;          /* Equal split for bigger image space */
-  gap: 40px;                               /* Increased from 28px */
-  padding: 24px;
-  background: var(--surface);              /* off-white bubble */
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: none;
-  margin: 28px 0 12px;
+display: grid;
+grid-template-columns: 1.2fr .8fr;
+gap: 28px;
+padding: 24px;
+background: var(--surface); /* off-white bubble */
+border: 1px solid var(--border);
+border-radius: var(--radius);
+box-shadow: none;
+margin: 28px 0 12px;
 }
 
 .intro__title {
-  font-family: "Asap Condensed", sans-serif;
-  margin: 0 0 .25rem;
-  font-size: clamp(28px, 4vw, 40px);
-  line-height: 1.2;
+font-family: "Asap Condensed", sans-serif;
+margin: 0 0 .25rem;
+font-size: clamp(28px, 4vw, 40px);
+line-height: 1.2;
 }
-
 .intro__blurb {
-  font-family: "Montserrat", sans-serif;
-  color: var(--muted);
-  margin: 0 0 12px;
+font-family: "Montserrat", sans-serif;
+color: var(--muted);
+margin: 0 0 12px;
 }
 
 .intro__contacts {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 12px;
-  color: var(--text);
-  font-family: "Roboto Mono", monospace;
-  font-size: 0.9rem;
+list-style: none;
+padding: 0;
+margin: 0 0 12px;
+color: var(--text);
+font-family: "Roboto Mono", monospace;
+font-size: 0.9rem;
 }
-
-.intro__contacts li { 
-  margin: 4px 0; 
-}
+.intro__contacts li { margin: 4px 0; }
 
 .intro__contacts a {
-  color: var(--text);
-  text-decoration: none;
-  transition: color 0.2s, text-decoration 0.2s;
+color: var(--text);
+text-decoration: none;
+transition: color 0.2s, text-decoration 0.2s;
 }
-
 .intro__contacts a:hover {
-  color: var(--brand);
-  text-decoration: underline;
+color: var(--brand);
+text-decoration: underline;
 }
 
 .intro__image img {
-  width: 100%;
-  height: 100%;
-  max-height: 420px;                       /* Increased from 320px */
-  object-fit: cover;
-  border-radius: 14px;
-  box-shadow: var(--shadow);
-  display: block;
+width: 100%;
+height: 100%;
+max-height: 320px;
+object-fit: cover;
+border-radius: 14px;
+box-shadow: var(--shadow);
+display: block;
 }
 
 /* ===================== */
@@ -844,19 +839,3 @@ html[data-theme="dark"] .other-title { color: var(--text); }
   text-decoration: none;
 }
 .other-title a:visited { color: var(--text) !important; }
-
-.about-me__grid {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;        /* Wider image column */
-  gap: 40px;
-}
-
-.about-me__image {
-  min-height: 380px;
-}
-
-.about-me__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}

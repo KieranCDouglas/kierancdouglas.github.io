@@ -32,7 +32,7 @@ In my free time, I enjoy cycling (mountain and fixed), making music with hardwar
     </div>
 
     <div class="about-me__image">
-      <img src="{{ 'assets/stuff/meimg.jpeg' | relative_url }}" alt="A picture of me in CA">
+      <img src="{{ 'assets/stuff/memg.jpeg' | relative_url }}" alt="A picture of me in CA">
     </div>
   </div>
 </section>

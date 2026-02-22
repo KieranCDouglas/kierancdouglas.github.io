@@ -26,7 +26,7 @@ I graduated summa cum laude from the University of Arizona in 2025 with a B.A. i
 
 Upon the completion of my master’s, I plan to pursue a Ph.D. in Economics to further explore the many questions I have about the world. Whether I end up in academia, industry, or government, I know I’ll be happiest so long as I have the freedom to be curious.
 
-In my free time, I enjoy cycling (mountain and fixed), making music with hardware synthesizers, playing overly involved board games, reading, and spending time with my family. I also periodically publish essays on Substack when inspiration—and time—permit.      
+In my free time, I enjoy cycling (mountain and fixed), making music with hardware synthesizers, playing overly involved board games, reading, and spending time with my family. I also periodically publish essays on Substack when inspiration-and time-permit.      
     </p>
 
     </div>

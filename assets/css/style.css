@@ -844,3 +844,19 @@ html[data-theme="dark"] .other-title { color: var(--text); }
   text-decoration: none;
 }
 .other-title a:visited { color: var(--text) !important; }
+
+.about-me__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;        /* Wider image column */
+  gap: 40px;
+}
+
+.about-me__image {
+  min-height: 380px;
+}
+
+.about-me__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

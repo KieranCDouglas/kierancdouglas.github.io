@@ -1,0 +1,11 @@
+---
+title: "Civicism: A Civic ENgagement Tool"
+year: 2026
+tags: [Policy, Civic Engagement, Political Compass]
+thumbnail: assets/stuff/IMG_8024.jpeg
+authors: K. Douglas
+pdf_url: https://kierancdouglas.github.io/civicism/#/
+layout: project
+permalink: /my-work/civicism/
+summary: "Civicism is a civic engagement platform designed to make political information more personally relevant and understandable. It brings together live Congressional activity, a searchable archive of current and historic members of Congress, a political ideology quiz, and ballot initiative analysis in one unified system. The core idea is simple: place elected officials, ballot measures, and users in the same ideological space so users can better understand the ideological space they inhabit. Civicism helps users move beyond party labels by comparing them directly to real political actors and issues. A key part of the project is a novel ideology scoring system for members of Congress. Unlike traditional models that rely mainly on vote shares, Civicism uses AI-assisted, high-dimensional weighted analysis to evaluate a representative’s broader public record, including behavior, messaging, and policy activity. Ballot initiatives are analyzed in a similar framework, allowing the platform to generate bias flags, proximity scores, and personalized voting guidance. This is an ongoing passion project focused on building a more useful political compass for real civic participation."
+---

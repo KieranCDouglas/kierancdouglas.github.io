@@ -68,7 +68,12 @@ body {
   color: var(--text);
   background: var(--bg);
   padding-left: 220px; /* space for sidebar */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
+
+main.container { flex: 1; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Asap Condensed", "Montserrat", sans-serif;

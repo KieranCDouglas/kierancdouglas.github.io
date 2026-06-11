@@ -17,7 +17,7 @@ permalink: /cv/
 <!-- Mobile/Small screens: open in the device PDF viewer -->
 <div class="cv-mobile">
   <p>On mobile, it’s best to open the PDF in your viewer:</p>
-  <a class="btn btn--primary" href="{{ 'assets/stuff/cv.pdf' | relative_url }}" target="_blank" rel="noopener">
+  <a class="btn btn--primary" href="{{ 'assets/stuff/cv_jun26.pdf' | relative_url }}" target="_blank" rel="noopener">
     Open CV (PDF)
   </a>
 </div>

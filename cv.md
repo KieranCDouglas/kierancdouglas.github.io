@@ -8,7 +8,7 @@ permalink: /cv/
 <div class="cv-wide">
   <iframe
     class="pdf-viewer"
-    src="{{ 'assets/stuff/cv_jun26.pdf' | relative_url }}#zoom=page-fit"
+    src="{{ 'assets/stuff/cv_sep26.pdf' | relative_url }}#zoom=page-fit"
     loading="lazy"
     title="Kieran Douglas CV">
   </iframe>

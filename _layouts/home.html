@@ -1,119 +1,189 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{{ page.title }} | {{ site.title }}</title>
-    {%- seo -%}
+---
+layout: default
+---
+<main class="container sp-main">
+  <article class="intro">
+    <div class="intro__text">
+      <h1 class="intro__title">{{ page.heading | default: site.author.name }}</h1>
+      <p class="intro__blurb">{{ page.about_blurb | default: site.description }}</p>
 
-    <!-- Google Fonts: Asap Condensed (400), Montserrat (400), Roboto Mono (400) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Asap+Condensed:wght@400&family=Montserrat:wght@400&family=Roboto+Mono:wght@400&display=swap"
-      rel="stylesheet"
-    >
+      <ul class="intro__contacts">
+        {% if site.author.email %}<li><strong>Email:</strong> <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></li>{% endif %}
+        {% if page.location %}<li><strong>Location:</strong> {{ page.location }}</li>{% endif %}
+      </ul>
 
-    <!-- Site styles (keep AFTER fonts) -->
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-    <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
-    <link rel="icon" href="data:,">
-  </head>
-  <body class="home">
-    {% include navigation.html %}
+      <ul class="social-icons">
+        {% if page.links.github %}
+        <li>
+          <a href="{{ page.links.github }}" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.18c-3.34.73-4.04-1.61-4.04-1.61-.55-1.41-1.35-1.79-1.35-1.79-1.1-.75.08-.74.08-.74 1.22.09 1.87 1.26 1.87 1.26 1.08 1.85 2.83 1.31 3.52 1 .11-.79.42-1.31.76-1.61-2.67-.31-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.25-3.22-.13-.31-.54-1.56.12-3.25 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.69.25 2.94.12 3.25.78.84 1.25 1.91 1.25 3.22 0 4.61-2.8 5.61-5.48 5.91.43.37.81 1.1.81 2.22v3.29c0 .32.21.69.83.57A12 12 0 0 0 12 .5Z"/></svg>
+          </a>
+        </li>
+        {% endif %}
+        {% if page.links.substack %}
+        <li>
+          <a href="{{ page.links.substack }}" target="_blank" rel="noopener" aria-label="Substack">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><rect x="3" y="4" width="18" height="3" rx="1"></rect><rect x="3" y="9" width="18" height="3" rx="1"></rect><rect x="6" y="14" width="12" height="7" rx="1"></rect></svg>
+          </a>
+        </li>
+        {% endif %}
+        {% if page.links.linkedin %}
+        <li>
+          <a href="{{ page.links.linkedin }}" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V23h-4zM8.5 8.5h3.84v1.98h.05c.54-1.03 1.86-2.12 3.83-2.12 4.1 0 4.86 2.7 4.86 6.2V23h-4v-5.92c0-1.41-.03-3.22-1.96-3.22-1.96 0-2.26 1.53-2.26 3.12V23h-4z"/></svg>
+          </a>
+        </li>
+        {% endif %}
+      </ul>
 
-    <main class="container">
-      <article class="intro">
-        <div class="intro__text">
-          <h1 class="intro__title">{{ page.heading | default: site.author.name }}</h1>
-          <p class="intro__blurb">
-            {{ page.about_blurb | default: "Economics graduate student at UC Davis — research, code, and notes." }}
-          </p>
+      <button class="theme-btn js-theme-toggle" type="button" aria-label="Toggle dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+    </div>
 
-          {% if page.show_contacts != false %}
-          <ul class="intro__contacts">
-            {% if site.author.email %}
-              <li><strong>Email:</strong> <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></li>
-            {% endif %}
-            {% if page.location %}
-              <li><strong>Location:</strong> {{ page.location }}</li>
-            {% endif %}
-          </ul>
+    {% if page.avatar %}
+    <div class="intro__image"><img src="{{ page.avatar | relative_url }}" alt="{{ site.author.name }}"></div>
+    {% endif %}
+  </article>
 
-          <!-- Social icons -->
-          <ul class="social-icons">
-            {% if page.links.github %}
-              <li>
-                <a href="{{ page.links.github }}" target="_blank" rel="noopener" aria-label="GitHub">
-                  <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
-                    <path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.18c-3.34.73-4.04-1.61-4.04-1.61-.55-1.41-1.35-1.79-1.35-1.79-1.1-.75.08-.74.08-.74 1.22.09 1.87 1.26 1.87 1.26 1.08 1.85 2.83 1.31 3.52 1 .11-.79.42-1.31.76-1.61-2.67-.31-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.25-3.22-.13-.31-.54-1.56.12-3.25 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.69.25 2.94.12 3.25.78.84 1.25 1.91 1.25 3.22 0 4.61-2.8 5.61-5.48 5.91.43.37.81 1.1.81 2.22v3.29c0 .32.21.69.83.57A12 12 0 0 0 12 .5Z"/>
-                  </svg>
-                </a>
-              </li>
-            {% endif %}
-            {% if page.links.substack %}
-              <li>
-                <a href="{{ page.links.substack }}" target="_blank" rel="noopener" aria-label="Substack">
-                  <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
-                    <rect x="3" y="4" width="18" height="3" rx="1"></rect>
-                    <rect x="3" y="9" width="18" height="3" rx="1"></rect>
-                    <rect x="6" y="14" width="12" height="7" rx="1"></rect>
-                  </svg>
-                </a>
-              </li>
-            {% endif %}
-            {% if page.links.linkedin %}
-              <li>
-                <a href="{{ page.links.linkedin }}" target="_blank" rel="noopener" aria-label="LinkedIn">
-                  <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
-                    <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V23h-4zM8.5 8.5h3.84v1.98h.05c.54-1.03 1.86-2.12 3.83-2.12 4.1 0 4.86 2.7 4.86 6.2V23h-4v-5.92c0-1.41-.03-3.22-1.96-3.22-1.96 0-2.26 1.53-2.26 3.12V23h-4z"/>
-                  </svg>
-                </a>
-              </li>
-            {% endif %}
-          </ul>
+  <section class="sp-section is-open" id="about">
+    <button class="sp-section__head" aria-expanded="true">
+      <span class="sp-section__title">About</span>
+      <span class="sp-section__chev" aria-hidden="true">&rsaquo;</span>
+    </button>
+    <div class="sp-section__body">
+      <div class="about-me">
+        <div class="about-me__grid">
+          <div class="about-me__text">
+            {{ content }}
+          </div>
+          {% if page.about_image %}
+          <div class="about-me__image"><img src="{{ page.about_image | relative_url }}" alt="{{ site.author.name }}"></div>
           {% endif %}
         </div>
-
-        {% if page.avatar %}
-        <div class="intro__image">
-          <img src="{{ page.avatar | relative_url }}" alt="{{ site.author.name }}">
-        </div>
-        {% endif %}
-      </article>
-
-      {{ content }}
-    </main>
-
-    <footer class="site-footer">
-      <div class="container">
-        <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}</p>
       </div>
-    </footer>
+    </div>
+  </section>
 
-    <!-- Same minimal theme script as default -->
-    <script>
-    (function () {
-      const KEY='theme', root=document.documentElement;
-      const saved=localStorage.getItem(KEY);
-      const prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const initial=saved || (prefersDark ? 'dark' : 'light');
+  <section class="sp-section" id="work">
+    <button class="sp-section__head" aria-expanded="false">
+      <span class="sp-section__title">My Work</span>
+      <span class="sp-section__chev" aria-hidden="true">&rsaquo;</span>
+    </button>
+    <div class="sp-section__body" hidden>
+      <ul class="project-list project-list--expandable">
+        {% assign items = site.projects | sort: "year" | reverse %}
+        {% for p in items %}
+        <li class="project-card project-card--expandable">
+          <button class="project-toggle" aria-expanded="false">
+            {% if p.thumbnail %}<img src="{{ p.thumbnail | relative_url }}" alt="" class="project-thumb">{% endif %}
+            <div class="project-meta">
+              <strong class="project-title">{{ p.title }}</strong>{% if p.year %}<span class="muted"> &middot; {{ p.year }}</span>{% endif %}
+              {% if p.authors %}<div class="project-authors">{{ p.authors }}</div>{% endif %}
+            </div>
+          </button>
+          <div class="project-details" hidden>
+            <div class="project-details__inner">
+              {% if p.summary %}<p class="summary summary--full">{{ p.summary }}</p>{% endif %}
+              {% if p.pdf_url or p.external_url %}
+              <p class="project-actions">
+                {% if p.pdf_url %}<a class="btn btn--primary" href="{{ p.pdf_url | relative_url }}" target="_blank" rel="noopener">Open PDF</a>{% endif %}
+                {% if p.external_url %}<a class="btn btn--primary" href="{{ p.external_url }}" target="_blank" rel="noopener"{% if p.pdf_url %} style="margin-left:.5rem"{% endif %}>Open</a>{% endif %}
+              </p>
+              {% endif %}
+            </div>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
 
-      function setTheme(t){
-        root.setAttribute('data-theme', t);
-        localStorage.setItem(KEY, t);
-        const btn=document.getElementById('theme-toggle');
-        if (btn) btn.setAttribute('aria-checked', t==='dark' ? 'true' : 'false');
-      }
-      setTheme(initial);
+  <section class="sp-section" id="cv">
+    <button class="sp-section__head" aria-expanded="false">
+      <span class="sp-section__title">CV</span>
+      <span class="sp-section__chev" aria-hidden="true">&rsaquo;</span>
+    </button>
+    <div class="sp-section__body" hidden>
+      <div class="cv-wide">
+        <p><a href="{{ '/assets/stuff/cv_sep26.pdf' | relative_url }}" target="_blank" rel="noopener">Open the CV in a new tab</a>, or read it here:</p>
+        <iframe class="pdf-viewer" src="{{ '/assets/stuff/cv_sep26.pdf' | relative_url }}#zoom=page-fit&view=Fit" loading="lazy" title="{{ site.author.name }} CV"></iframe>
+      </div>
+      <div class="cv-mobile">
+        <p>On a phone the embedded viewer is cramped &mdash; open the PDF in your reader instead:</p>
+        <a class="btn btn--primary" href="{{ '/assets/stuff/cv_sep26.pdf' | relative_url }}" target="_blank" rel="noopener">Open CV (PDF)</a>
+      </div>
+    </div>
+  </section>
 
-      document.addEventListener('click', function(e){
-        const btn=e.target.closest('#theme-toggle');
-        if(!btn) return;
-        const next=root.getAttribute('data-theme')==='dark' ? 'light' : 'dark';
-        setTheme(next);
-      });
-    })();
-    </script>
-  </body>
-</html>
+  <section class="sp-section" id="other">
+    <button class="sp-section__head" aria-expanded="false">
+      <span class="sp-section__title">Other Things</span>
+      <span class="sp-section__chev" aria-hidden="true">&rsaquo;</span>
+    </button>
+    <div class="sp-section__body" hidden>
+      <ul class="other-grid other-grid--expandable">
+        {% assign others = site.others | sort: "year" | reverse %}
+        {% for o in others %}
+        <li class="other-card other-card--expandable">
+          <button class="other-toggle" aria-expanded="false">
+            {% if o.thumbnail %}<img src="{{ o.thumbnail | relative_url }}" alt="" class="other-thumb">{% endif %}
+            <div class="other-meta">
+              <strong class="other-title">{{ o.title }}</strong>{% if o.year %}<span class="muted"> &middot; {{ o.year }}</span>{% endif %}
+              {% if o.tags %}<div class="other-tags">{{ o.tags | join: ', ' }}</div>{% endif %}
+            </div>
+          </button>
+          <div class="other-details" hidden>
+            <div class="other-details__inner">
+              {% if o.summary %}<p class="summary summary--full">{{ o.summary }}</p>{% endif %}
+              {% if o.external_url %}<p class="other-actions"><a class="btn btn--primary" href="{{ o.external_url }}" target="_blank" rel="noopener">Open</a></p>{% endif %}
+            </div>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  /* section accordions */
+  document.querySelectorAll('.sp-section').forEach(function (s) {
+    var head = s.querySelector('.sp-section__head');
+    var body = s.querySelector('.sp-section__body');
+    head.addEventListener('click', function () {
+      var open = body.hidden;
+      s.classList.toggle('is-open', open);
+      head.setAttribute('aria-expanded', String(open));
+      body.hidden = !open;
+    });
+  });
+
+  /* project / other card accordions */
+  document.querySelectorAll('.project-list--expandable, .other-grid--expandable').forEach(function (list) {
+    list.addEventListener('click', function (e) {
+      var toggle = e.target.closest('.project-toggle, .other-toggle');
+      if (!toggle) return;
+      var card = toggle.closest('.project-card--expandable, .other-card--expandable');
+      var details = card.querySelector('.project-details, .other-details');
+      var isOpen = card.classList.contains('is-open');
+      card.classList.toggle('is-open', !isOpen);
+      details.hidden = isOpen;
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+    });
+  });
+
+  /* open a section directly from a #hash (e.g. /#cv) */
+  if (location.hash.length > 1) {
+    var target = document.querySelector(location.hash);
+    if (target && target.classList.contains('sp-section')) {
+      target.classList.add('is-open');
+      target.querySelector('.sp-section__head').setAttribute('aria-expanded', 'true');
+      target.querySelector('.sp-section__body').hidden = false;
+      target.scrollIntoView();
+    }
+  }
+})();
+</script>

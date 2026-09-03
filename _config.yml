@@ -29,13 +29,12 @@ kramdown:
 # -------------------------------------------------------------
 # Collections
 # -------------------------------------------------------------
+# Data sources for the single-page home — no standalone pages generated.
 collections:
   projects:
-    output: true
-    permalink: /my-work/:name/
+    output: false
   others:
-    output: true
-    permalink: /other-things/:name/
+    output: false
 
 # -------------------------------------------------------------
 # Defaults
@@ -45,16 +44,10 @@ defaults:
       path: ""         # all files
     values:
       layout: "default"
-  - scope:
-      path: ""         # all project items
-      type: "projects"
-    values:
-      layout: "project"   # a layout you'll add below
 
 # -------------------------------------------------------------
-# Permalinks & File Handling
+# File Handling
 # -------------------------------------------------------------
-permalink: /:categories/:title/
 exclude:
   - README.md
   - node_modules
@@ -62,5 +55,5 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - LICENSE
-  - .gitignore
+  - _preview
   - _site

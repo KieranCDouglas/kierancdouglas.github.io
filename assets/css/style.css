@@ -723,7 +723,7 @@ main.sp-main .about-me a:not(.btn):hover { color: var(--brand-ink); }
 
   .intro { grid-template-columns: 1fr; gap: 24px; }
   .intro__text > .theme-btn { position: absolute; top: 2px; right: 0; margin: 0; }
-  .intro__title { padding-right: 56px; }
+  .intro__title { padding-right: 56px; font-size: clamp(2.4rem, 9vw, 3.2rem); }
   .intro__image { max-width: 260px; }
 
   .cards { grid-template-columns: repeat(2, 1fr); }
@@ -735,9 +735,9 @@ main.sp-main .about-me a:not(.btn):hover { color: var(--brand-ink); }
 
   main.sp-main .project-list--expandable .project-toggle { grid-template-columns: 1fr; padding: 16px 40px 16px 16px; }
 
-  .cv-wide { display: none; }
-  .cv-mobile { display: block; }
-  .pdf-viewer { height: 100svh; min-height: 100svh; }
+  /* CV: no embedded viewer on mobile — just the open-in-app button */
+  .sp-section .cv-wide { display: none; }
+  .sp-section .cv-mobile { display: block; }
 }
 
 @media (max-width: 700px) {

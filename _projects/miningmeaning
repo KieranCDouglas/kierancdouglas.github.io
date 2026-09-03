@@ -6,7 +6,7 @@ thumbnail: assets/stuff/IMG_6261.jpeg
 authors: K. Douglas, J.D. Michler, A. Josephson.
 layout: project
 permalink: /my-work/miningmeaning/
-summary: "We apply machine learning and natural language processing techniques to support large-scale meta-analysis, literature review, and data collection — focusing on the validity and interchangeability of rainfall metrics used in instrumental variables regression. We test state-of-the-art NLP methods to assess their utility in academic research contexts. This paper contributes to both the literature critiquing instrumental variables and the growing interest in the labor market implications of large language models. It is currently a working paper, and results are forthcoming."
+summary: "We examine measurement error arising from the use of large language models (LLMs) in domain-specific metadata-extraction tasks. Using studies that employ weather as an instrumental variable as a test case, we compare extraction performance across four model families and three prompting approaches. We identify common LLM failure modes in literature-review workflows and characterize tradeoffs among extraction approaches."
 ---
 
 

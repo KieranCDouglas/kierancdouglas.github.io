@@ -458,7 +458,8 @@ main.cv-main { flex: 1; min-height: 0; display: flex; flex-direction: column; pa
 }
 .project-list--expandable .project-title a:visited { color: var(--text) !important; }
 
-.project-authors {
+.project-authors,
+.project-tags {
   font-family: var(--font-mono);
   font-size: 0.82rem;
   color: var(--muted);

@@ -79,8 +79,9 @@ layout: default
           <button class="project-toggle" aria-expanded="false">
             {% if p.thumbnail %}<img src="{{ p.thumbnail | relative_url }}" alt="" class="project-thumb">{% endif %}
             <div class="project-meta">
-              <strong class="project-title">{{ p.title }}</strong>{% if p.year %}<span class="muted"> &middot; {{ p.year }}</span>{% endif %}
+              <strong class="project-title">{{ p.title }}</strong>
               {% if p.authors %}<div class="project-authors">{{ p.authors }}</div>{% endif %}
+              {% if p.tags or p.year %}<div class="project-tags">{% if p.tags %}{{ p.tags | join: ', ' }}{% endif %}{% if p.tags and p.year %} &middot; {% endif %}{% if p.year %}{{ p.year }}{% endif %}</div>{% endif %}
             </div>
           </button>
           <div class="project-details" hidden>
@@ -130,8 +131,8 @@ layout: default
           <button class="other-toggle" aria-expanded="false">
             {% if o.thumbnail %}<img src="{{ o.thumbnail | relative_url }}" alt="" class="other-thumb">{% endif %}
             <div class="other-meta">
-              <strong class="other-title">{{ o.title }}</strong>{% if o.year %}<span class="muted"> &middot; {{ o.year }}</span>{% endif %}
-              {% if o.tags %}<div class="other-tags">{{ o.tags | join: ', ' }}</div>{% endif %}
+              <strong class="other-title">{{ o.title }}</strong>
+              {% if o.tags or o.year %}<div class="other-tags">{% if o.tags %}{{ o.tags | join: ', ' }}{% endif %}{% if o.tags and o.year %} &middot; {% endif %}{% if o.year %}{{ o.year }}{% endif %}</div>{% endif %}
             </div>
           </button>
           <div class="other-details" hidden>
